@@ -2,102 +2,218 @@ import os
 import asyncio
 import discord
 import aiohttp
-from discord.ext import tasks
-from dotenv import load_dotenv
+from discord.ext import tasks, commands
 from datetime import datetime
+from dotenv import load_dotenv
 from flask import Flask
 from threading import Thread
 
 load_dotenv()
-
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 TORN_API_KEY = os.getenv("TORN_API_KEY")
 FACTION_ID = int(os.getenv("FACTION_ID"))
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
-HEADERS = {"User-Agent": "AttackAlertBot/1.0"}
 
 intents = discord.Intents.default()
 intents.messages = True
 intents.reactions = True
-client = discord.Client(intents=intents)
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 claimed_targets = {}
+previous_war_id = None  # For tracking war end
 
-# Initialize Flask app for keep-alive
-app = Flask(__name__)
+HEADERS = {"User-Agent": "AttackAlertBot/1.0"}
+
+# KEEP-ALIVE FLASK SERVER
+app = Flask('')
+
 
 @app.route('/')
 def home():
-    return "Bot is running"
+    return "I'm alive!"
 
-@client.event
-async def on_ready():
-    print(f"Logged in as {client.user}")
-    check_targets.start()
+
+def run():
+    app.run(host='0.0.0.0', port=5000)
+
+
+def keep_alive():
+    Thread(target=run).start()
+
 
 async def get_json(url):
     async with aiohttp.ClientSession(headers=HEADERS) as session:
         async with session.get(url) as resp:
             return await resp.json()
 
-async def get_ranked_war_info():
+
+async def get_opponent_faction():
     url = f"https://api.torn.com/faction/{FACTION_ID}?selections=rankedwars&key={TORN_API_KEY}"
     data = await get_json(url)
     wars = data.get("rankedwars", {})
-
     for war_id, war_data in wars.items():
         if war_data["war"]["end"] == 0:
-            return war_data
-    return None
+            factions = war_data["factions"]
+            for fid in factions:
+                if int(fid) != FACTION_ID:
+                    return int(fid), war_id, war_data
+    return None, None, None
 
-async def get_faction_rewards(war_data):
-    faction_rewards = {}
-    for faction_id, faction_data in war_data["factions"].items():
-        faction_name = faction_data["name"]
-        faction_score = faction_data["score"]
-        faction_chain = faction_data["chain"]
-        if war_data["war"].get("winner") == int(faction_id):
-            rewards = war_data["war"].get("rewards", {}).get(faction_id, {})
-            faction_rewards[faction_name] = {
-                "score": faction_score,
-                "chain": faction_chain,
-                "rewards": rewards
-            }
-    return faction_rewards
 
-async def post_ranked_war_result(war_data):
-    channel = client.get_channel(CHANNEL_ID)
-    faction_rewards = await get_faction_rewards(war_data)
+async def get_opponent_members(faction_id):
+    url = f"https://api.torn.com/faction/{faction_id}?selections=basic&key={TORN_API_KEY}"
+    data = await get_json(url)
+    return data.get("members", {})
 
-    embed = discord.Embed(
-        title=f"Ranked War Report",
-        description=f"**Ranked War #{war_data['war']['target']}**\n"
-        f"{war_data['factions'][str(war_data['war']['winner'])]['name']} has defeated "
-        f"{war_data['factions'][str(FACTION_ID)]['name']} in a ranked war",
-        color=0x1abc9c)
 
-    for faction_name, rewards in faction_rewards.items():
-        embed.add_field(
-            name=f"{faction_name} - Score: {rewards['score']} (Chain: {rewards['chain']})",
-            value=f"**Rewards**: {rewards['rewards']}",
-            inline=False)
+async def is_attackable(status):
+    state = status["state"]
+    if state == "Okay":
+        return True
+    elif state == "Hospital":
+        until = status.get("until", 0)
+        return (until - int(datetime.now().timestamp())) <= 60
+    return False
 
-    await channel.send(embed=embed)
 
-@tasks.loop(minutes=10)
+async def get_user_info(user_id):
+    url = f"https://api.torn.com/user/{user_id}?selections=profile&key={TORN_API_KEY}"
+    return await get_json(url)
+
+
+@bot.command()
+async def warstatus(ctx):
+    opponent_id, war_id, war_data = await get_opponent_faction()
+    if not war_data:
+        await ctx.send("No ongoing ranked war.")
+        return
+
+    lead = war_data["war"]["score"]["faction"] - war_data["war"]["score"][
+        "opposing"]
+    needed = abs(lead)
+    estimated_attacks = (
+        needed * 25) // 100 + 1  # assuming 25e per attack, 4 pts per attack
+
+    await ctx.send(f"**Current War Status**\n"
+                   f"Lead: `{lead} points`\n"
+                   f"Approx. attacks to overtake: `{estimated_attacks}`")
+
+
+@tasks.loop(seconds=30)
 async def check_targets():
-    war_data = await get_ranked_war_info()
-    if war_data:
-        await post_ranked_war_result(war_data)
-    else:
-        print("No active ranked war found.")
+    global previous_war_id
+    channel = bot.get_channel(CHANNEL_ID)
+    opponent_id, war_id, war_data = await get_opponent_faction()
 
-def run_flask():
-    app.run(host='0.0.0.0', port=5000)
+    # Check for war end
+    if previous_war_id and war_id != previous_war_id:
+        await announce_war_result(previous_war_id, channel)
+        previous_war_id = None
 
-if __name__ == "__main__":
-    flask_thread = Thread(target=run_flask)
-    flask_thread.start()
+    if not opponent_id:
+        return
 
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(client.start(DISCORD_TOKEN))
+    previous_war_id = war_id
+    members = await get_opponent_members(opponent_id)
+    for member_id, member in members.items():
+        status = member.get("status", {})
+        name = member.get("name", "Unknown")
+
+        if await is_attackable(status):
+            if member_id in claimed_targets:
+                continue
+
+            user_data = await get_user_info(member_id)
+            level = user_data.get("level", "N/A")
+            last_active = user_data.get("last_action",
+                                        {}).get("relative", "Unknown")
+            days_faction = user_data.get("faction",
+                                         {}).get("days_in_faction", "N/A")
+
+            profile_link = f"https://www.torn.com/profiles.php?XID={member_id}"
+            embed = discord.Embed(
+                title=f"Target Available",
+                description=f"**[{name} ({member_id})]({profile_link})**",
+                color=0x1abc9c)
+            embed.add_field(name="Status", value=status["state"], inline=True)
+            embed.add_field(name="Level", value=level, inline=True)
+            embed.add_field(name="Last Active", value=last_active, inline=True)
+            embed.add_field(name="Days in Faction",
+                            value=days_faction,
+                            inline=True)
+
+            if status["state"] == "Hospital":
+                seconds_left = status.get("until", 0) - int(
+                    datetime.now().timestamp())
+                embed.add_field(name="Leaving Hospital",
+                                value=f"{seconds_left} sec",
+                                inline=True)
+
+            view = discord.ui.View()
+            view.add_item(
+                discord.ui.Button(
+                    label="Attack",
+                    url=
+                    f"https://www.torn.com/loader.php?sid=attack&user2ID={member_id}",
+                    style=discord.ButtonStyle.link))
+
+            msg = await channel.send(embed=embed, view=view)
+            await msg.add_reaction("⚔️")
+
+            def check(reaction, user):
+                return reaction.message.id == msg.id and str(
+                    reaction.emoji) == "⚔️" and not user.bot
+
+            try:
+                reaction, user = await bot.wait_for("reaction_add",
+                                                    timeout=60.0,
+                                                    check=check)
+                embed.set_footer(text=f"Claimed by {user.display_name}")
+                await msg.edit(embed=embed)
+                claimed_targets[member_id] = user.id
+            except asyncio.TimeoutError:
+                pass
+
+
+async def announce_war_result(war_id, channel):
+    url = f"https://api.torn.com/faction/{FACTION_ID}?selections=rankedwars&key={TORN_API_KEY}"
+    data = await get_json(url)
+    war_data = data.get("rankedwars", {}).get(str(war_id), {})
+    if not war_data:
+        return
+
+    factions = war_data.get("factions", {})
+    rewards = war_data.get("rewards", {})
+    start = datetime.fromtimestamp(
+        war_data["war"]["start"]).strftime('%H:%M:%S - %d/%m/%y')
+    end = datetime.fromtimestamp(
+        war_data["war"]["end"]).strftime('%H:%M:%S - %d/%m/%y')
+
+    lines = [
+        f"**Ranked War Report**", f"**Ranked War #{war_id}**",
+        f"{start} until {end}"
+    ]
+
+    for fid, info in factions.items():
+        name = info.get("name", "Unknown")
+        result = "won" if info.get("result") == "win" else "lost"
+        rank = info.get("rank", "Unknown")
+        reward = rewards.get(fid, {})
+        respect = reward.get("bonus_respect", 0)
+        points = reward.get("points", 0)
+        caches = ", ".join(reward.get("rank_rewards", [])) or "No cache"
+        lines.append(
+            f"{name} {result.upper()} and received {respect} bonus respect, {points} points, {caches}"
+        )
+
+    await channel.send("\n".join(lines))
+
+
+@bot.event
+async def on_ready():
+    print(f"Logged in as {bot.user}")
+    check_targets.start()
+
+
+keep_alive()
+bot.run(DISCORD_TOKEN)
