@@ -303,6 +303,61 @@ async def announce_war_result(war_id, channel):
 
 
 @bot.command()
+async def company(ctx, *, user_id: str = None):
+    """Get company info about a player"""
+    if not user_id:
+        await ctx.send("❌ Please provide a player ID. Usage: `!company 1234567`")
+        return
+        
+    try:
+        user_id = int(''.join(filter(str.isdigit, user_id)))
+        user_data = await get_json(f"https://api.torn.com/user/{user_id}?selections=profile&key={TORN_API_KEY}")
+        
+        job = user_data.get("job", {})
+        company_name = job.get("company_name", "Unemployed")
+        company_position = job.get("position", "N/A")
+        
+        embed = discord.Embed(
+            title="Company Information",
+            description=f"**[{user_data.get('name')}](https://www.torn.com/profiles.php?XID={user_id})**",
+            color=0x1abc9c
+        )
+        embed.add_field(name="Company", value=company_name, inline=True)
+        embed.add_field(name="Position", value=company_position, inline=True)
+        
+        await ctx.send(embed=embed)
+    except Exception as e:
+        await ctx.send(f"Error getting company info: {str(e)}")
+
+@bot.command()
+async def faction(ctx, faction_id: int = None):
+    """Get info about a faction"""
+    if not faction_id:
+        await ctx.send("❌ Please provide a faction ID. Usage: `!faction 1234567`")
+        return
+        
+    try:
+        faction_data = await get_json(f"https://api.torn.com/faction/{faction_id}?selections=basic&key={TORN_API_KEY}")
+        
+        name = faction_data.get("name", "Unknown")
+        respect = faction_data.get("respect", 0)
+        members_count = len(faction_data.get("members", {}))
+        leader = faction_data.get("leader", "Unknown")
+        
+        embed = discord.Embed(
+            title="Faction Information",
+            description=f"**[{name}](https://www.torn.com/factions.php?step=profile&ID={faction_id})**",
+            color=0x1abc9c
+        )
+        embed.add_field(name="Leader", value=leader, inline=True)
+        embed.add_field(name="Members", value=members_count, inline=True)
+        embed.add_field(name="Respect", value=respect, inline=True)
+        
+        await ctx.send(embed=embed)
+    except Exception as e:
+        await ctx.send(f"Error getting faction info: {str(e)}")
+
+@bot.command()
 async def claim(ctx, user_id: int):
     """Claim a target"""
     claimed_targets[user_id] = ctx.author.id
