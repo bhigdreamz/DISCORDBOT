@@ -176,7 +176,7 @@ async def commands(ctx):
         color=0x1abc9c
     )
     
-    for cmd, desc in commands.items():
+    for cmd, desc in cmd_list.items():
         embed.add_field(name=cmd, value=desc, inline=False)
         
     await ctx.send(embed=embed)
