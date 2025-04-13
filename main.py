@@ -330,13 +330,24 @@ async def company(ctx, *, user_id: str = None):
         await ctx.send(f"Error getting company info: {str(e)}")
 
 @bot.command()
-async def faction(ctx, faction_id: int = None):
-    """Get info about a faction"""
-    if not faction_id:
-        await ctx.send("❌ Please provide a faction ID. Usage: `!faction 1234567`")
+async def faction(ctx, *, input_id: str = None):
+    """Get info about a faction or player's faction"""
+    if not input_id:
+        await ctx.send("❌ Please provide an ID. Usage: `!faction <user_id/faction_id>`")
         return
         
     try:
+        # Clean up the input ID and convert to int
+        input_id = int(''.join(filter(str.isdigit, input_id)))
+        
+        # First try to get user's faction if it's a user ID
+        user_data = await get_json(f"https://api.torn.com/user/{input_id}?selections=profile&key={TORN_API_KEY}")
+        faction_id = user_data.get("faction", {}).get("faction_id")
+        
+        if not faction_id:
+            # If no faction found in user data, treat input as faction ID
+            faction_id = input_id
+            
         faction_data = await get_json(f"https://api.torn.com/faction/{faction_id}?selections=basic&key={TORN_API_KEY}")
         
         name = faction_data.get("name", "Unknown")
