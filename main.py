@@ -21,7 +21,13 @@ intents.message_content = True
 intents.message_content = True
 permissions = discord.Permissions()
 permissions.manage_messages = True
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="!", intents=intents, permissions=permissions)
+
+# Add error handler for command errors
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, discord.errors.Forbidden):
+        await ctx.send("❌ I don't have permission to perform this action.")
 
 claimed_targets = {}
 previous_war_id = None  # For tracking war end
