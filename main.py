@@ -86,6 +86,7 @@ async def get_user_info(user_id):
 @bot.command()
 async def warstatus(ctx):
     try:
+        await ctx.message.delete()  # Delete the command message
         opponent_id, war_id, war_data = await get_opponent_faction()
         if not war_data:
             await ctx.send("⚠️ No ongoing ranked war.")
@@ -104,6 +105,7 @@ async def warstatus(ctx):
 @bot.command()
 async def target(ctx, *, user_id: str = None):
     """Get detailed info about a specific target"""
+    await ctx.message.delete()  # Delete the command message
     if not user_id:
         await ctx.send("❌ Please provide a target ID. Usage: `!target 1234567`")
         return
@@ -172,6 +174,7 @@ async def claims(ctx):
 @bot.command()
 async def commands(ctx):
     """Show all available commands"""
+    await ctx.message.delete()  # Delete the command message
     cmd_list = {
         "!warstatus": "Shows current war status and points needed",
         "!target <user_id>": "Get detailed info about a specific target",
