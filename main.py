@@ -158,6 +158,10 @@ async def target(ctx, *, user_id: str = None):
 @bot.command()
 async def unclaim(ctx, user_id: int):
     """Remove a claim on a target"""
+    try:
+        await ctx.message.delete()
+    except Exception:
+        pass
     if user_id in claimed_targets:
         del claimed_targets[user_id]
         await ctx.send(f"Unclaimed target {user_id}")
@@ -167,6 +171,10 @@ async def unclaim(ctx, user_id: int):
 @bot.command()
 async def claims(ctx):
     """Show all currently claimed targets"""
+    try:
+        await ctx.message.delete()
+    except Exception:
+        pass
     if not claimed_targets:
         await ctx.send("No targets are currently claimed.")
         return
@@ -319,6 +327,10 @@ async def announce_war_result(war_id, channel):
 @bot.command()
 async def company(ctx, *, user_id: str = None):
     """Get company info about a player"""
+    try:
+        await ctx.message.delete()
+    except Exception:
+        pass
     if not user_id:
         await ctx.send("❌ Please provide a player ID. Usage: `!company 1234567`")
         return
@@ -346,6 +358,10 @@ async def company(ctx, *, user_id: str = None):
 @bot.command()
 async def faction(ctx, *, input_id: str = None):
     """Get info about a faction or player's faction"""
+    try:
+        await ctx.message.delete()
+    except Exception:
+        pass
     if not input_id:
         await ctx.send("❌ Please provide an ID. Usage: `!faction <user_id/faction_id>`")
         return
@@ -390,6 +406,10 @@ async def faction(ctx, *, input_id: str = None):
 @bot.command()
 async def claim(ctx, user_id: int):
     """Claim a target"""
+    try:
+        await ctx.message.delete()
+    except Exception:
+        pass
     claimed_targets[user_id] = ctx.author.id
     await ctx.send(f"Target {user_id} claimed by {ctx.author.display_name}")
 
