@@ -22,6 +22,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 claimed_targets = {}
 previous_war_id = None  # For tracking war end
+bot.claimed_targets = claimed_targets  # Make it accessible to all commands
 
 HEADERS = {"User-Agent": "AttackAlertBot/1.0"}
 
@@ -291,6 +292,12 @@ async def announce_war_result(war_id, channel):
 
     await channel.send("\n".join(lines))
 
+
+@bot.command()
+async def claim(ctx, user_id: int):
+    """Claim a target"""
+    claimed_targets[user_id] = ctx.author.id
+    await ctx.send(f"Target {user_id} claimed by {ctx.author.display_name}")
 
 @bot.event
 async def on_ready():
