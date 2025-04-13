@@ -353,14 +353,19 @@ async def faction(ctx, *, input_id: str = None):
         name = faction_data.get("name", "Unknown")
         respect = faction_data.get("respect", 0)
         members_count = len(faction_data.get("members", {}))
-        leader = faction_data.get("leader", "Unknown")
+        leader_id = faction_data.get("leader", 0)
+        
+        # Get leader's info
+        leader_data = await get_json(f"https://api.torn.com/user/{leader_id}?selections=profile&key={TORN_API_KEY}")
+        leader_name = leader_data.get("name", "Unknown")
+        leader_info = f"[{leader_name} ({leader_id})](https://www.torn.com/profiles.php?XID={leader_id})"
         
         embed = discord.Embed(
             title="Faction Information",
             description=f"**[{name}](https://www.torn.com/factions.php?step=profile&ID={faction_id})**",
             color=0x1abc9c
         )
-        embed.add_field(name="Leader", value=leader, inline=True)
+        embed.add_field(name="Leader", value=leader_info, inline=True)
         embed.add_field(name="Members", value=members_count, inline=True)
         embed.add_field(name="Respect", value=respect, inline=True)
         
