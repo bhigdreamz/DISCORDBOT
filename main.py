@@ -19,8 +19,9 @@ intents.messages = True
 intents.reactions = True
 intents.message_content = True
 intents.message_content = True
+permissions = discord.Permissions()
+permissions.manage_messages = True
 bot = commands.Bot(command_prefix="!", intents=intents)
-bot.message_delete_perm = False  # Track if bot has delete permissions
 
 claimed_targets = {}
 previous_war_id = None  # For tracking war end
