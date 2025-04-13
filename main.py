@@ -115,6 +115,7 @@ async def target(ctx, *, user_id: str = None):
         name = user_data.get("name", "Unknown")
         level = user_data.get("level", "N/A")
         last_active = user_data.get("last_action", {}).get("relative", "Unknown")
+        status = user_data.get("status", {}).get("state", "Unknown")
         faction_info = user_data.get("faction", {})
         
         embed = discord.Embed(
@@ -122,6 +123,7 @@ async def target(ctx, *, user_id: str = None):
             description=f"**[{name} ({user_id})](https://www.torn.com/profiles.php?XID={user_id})**",
             color=0x1abc9c
         )
+        embed.add_field(name="Status", value=status, inline=True)
         embed.add_field(name="Level", value=level, inline=True)
         embed.add_field(name="Last Active", value=last_active, inline=True)
         if faction_info:
