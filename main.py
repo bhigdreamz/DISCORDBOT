@@ -160,14 +160,14 @@ async def claims(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-async def help(ctx):
+async def commands(ctx):
     """Show all available commands"""
-    commands = {
+    cmd_list = {
         "!warstatus": "Shows current war status and points needed",
         "!target <user_id>": "Get detailed info about a specific target",
         "!unclaim <user_id>": "Remove a claim on a target",
         "!claims": "Show all currently claimed targets",
-        "!help": "Show this help message"
+        "!commands": "Show this help message"
     }
     
     embed = discord.Embed(
