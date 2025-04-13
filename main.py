@@ -99,6 +99,88 @@ async def warstatus(ctx):
                    f"Lead: `{lead} points`\n"
                    f"Approx. attacks to overtake: `{estimated_attacks}`")
 
+@bot.command()
+async def target(ctx, user_id: int):
+    """Get detailed info about a specific target"""
+    try:
+        user_data = await get_user_info(user_id)
+        name = user_data.get("name", "Unknown")
+        level = user_data.get("level", "N/A")
+        last_active = user_data.get("last_action", {}).get("relative", "Unknown")
+        faction_info = user_data.get("faction", {})
+        
+        embed = discord.Embed(
+            title=f"Target Information",
+            description=f"**[{name} ({user_id})](https://www.torn.com/profiles.php?XID={user_id})**",
+            color=0x1abc9c
+        )
+        embed.add_field(name="Level", value=level, inline=True)
+        embed.add_field(name="Last Active", value=last_active, inline=True)
+        if faction_info:
+            embed.add_field(name="Faction", value=faction_info.get("faction_name", "None"), inline=True)
+            
+        view = discord.ui.View()
+        view.add_item(
+            discord.ui.Button(
+                label="Attack",
+                url=f"https://www.torn.com/loader.php?sid=attack&user2ID={user_id}",
+                style=discord.ButtonStyle.link
+            )
+        )
+        
+        await ctx.send(embed=embed, view=view)
+    except Exception as e:
+        await ctx.send(f"Error getting target info: {str(e)}")
+
+@bot.command()
+async def unclaim(ctx, user_id: int):
+    """Remove a claim on a target"""
+    if user_id in claimed_targets:
+        del claimed_targets[user_id]
+        await ctx.send(f"Unclaimed target {user_id}")
+    else:
+        await ctx.send("This target was not claimed.")
+
+@bot.command()
+async def claims(ctx):
+    """Show all currently claimed targets"""
+    if not claimed_targets:
+        await ctx.send("No targets are currently claimed.")
+        return
+        
+    embed = discord.Embed(title="Currently Claimed Targets", color=0x1abc9c)
+    for target_id, claimer_id in claimed_targets.items():
+        claimer = ctx.guild.get_member(claimer_id)
+        claimer_name = claimer.display_name if claimer else "Unknown"
+        embed.add_field(
+            name=f"Target ID: {target_id}",
+            value=f"Claimed by: {claimer_name}",
+            inline=False
+        )
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def help(ctx):
+    """Show all available commands"""
+    commands = {
+        "!warstatus": "Shows current war status and points needed",
+        "!target <user_id>": "Get detailed info about a specific target",
+        "!unclaim <user_id>": "Remove a claim on a target",
+        "!claims": "Show all currently claimed targets",
+        "!help": "Show this help message"
+    }
+    
+    embed = discord.Embed(
+        title="Available Commands",
+        description="Here are all the available commands:",
+        color=0x1abc9c
+    )
+    
+    for cmd, desc in commands.items():
+        embed.add_field(name=cmd, value=desc, inline=False)
+        
+    await ctx.send(embed=embed)
+
 
 @tasks.loop(seconds=30)
 async def check_targets():
