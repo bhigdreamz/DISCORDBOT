@@ -85,25 +85,32 @@ async def get_user_info(user_id):
 
 @bot.command()
 async def warstatus(ctx):
-    opponent_id, war_id, war_data = await get_opponent_faction()
-    if not war_data:
-        await ctx.send("No ongoing ranked war.")
-        return
+    try:
+        opponent_id, war_id, war_data = await get_opponent_faction()
+        if not war_data:
+            await ctx.send("⚠️ No ongoing ranked war.")
+            return
 
-    lead = war_data["war"]["score"]["faction"] - war_data["war"]["score"][
-        "opposing"]
-    needed = abs(lead)
-    estimated_attacks = (
-        needed * 25) // 100 + 1  # assuming 25e per attack, 4 pts per attack
+        lead = war_data["war"]["score"]["faction"] - war_data["war"]["score"]["opposing"]
+        needed = abs(lead)
+        estimated_attacks = (needed * 25) // 100 + 1  # assuming 25e per attack, 4 pts per attack
 
-    await ctx.send(f"**Current War Status**\n"
-                   f"Lead: `{lead} points`\n"
-                   f"Approx. attacks to overtake: `{estimated_attacks}`")
+        await ctx.send(f"**Current War Status**\n"
+                      f"Lead: `{lead} points`\n"
+                      f"Approx. attacks to overtake: `{estimated_attacks}`")
+    except Exception as e:
+        await ctx.send("❌ Error checking war status. Try again later.")
 
 @bot.command()
-async def target(ctx, user_id: int):
+async def target(ctx, *, user_id: str = None):
     """Get detailed info about a specific target"""
+    if not user_id:
+        await ctx.send("❌ Please provide a target ID. Usage: `!target 1234567`")
+        return
+        
     try:
+        # Clean up the user_id string and convert to int
+        user_id = int(''.join(filter(str.isdigit, user_id)))
         user_data = await get_user_info(user_id)
         name = user_data.get("name", "Unknown")
         level = user_data.get("level", "N/A")
