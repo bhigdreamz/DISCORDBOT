@@ -18,7 +18,9 @@ intents = discord.Intents.default()
 intents.messages = True
 intents.reactions = True
 intents.message_content = True
+intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
+bot.message_delete_perm = False  # Track if bot has delete permissions
 
 claimed_targets = {}
 previous_war_id = None  # For tracking war end
@@ -105,7 +107,16 @@ async def warstatus(ctx):
 @bot.command()
 async def target(ctx, *, user_id: str = None):
     """Get detailed info about a specific target"""
-    await ctx.message.delete()  # Delete the command message
+    try:
+        await ctx.message.delete()
+        bot.message_delete_perm = True
+    except discord.Forbidden:
+        bot.message_delete_perm = False
+        # Continue without deleting if no permission
+        pass
+    except Exception:
+        pass
+
     if not user_id:
         await ctx.send("❌ Please provide a target ID. Usage: `!target 1234567`")
         return
