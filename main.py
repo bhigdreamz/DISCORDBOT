@@ -97,19 +97,23 @@ async def warstatus(ctx):
     try:
         await ctx.message.delete()  # Delete the command message
         opponent_id, war_id, war_data = await get_opponent_faction()
-        if not war_data:
+        
+        if opponent_id is None or war_data is None:
             await ctx.send("⚠️ No ongoing ranked war.")
             return
 
-        lead = war_data["war"]["score"]["faction"] - war_data["war"]["score"]["opposing"]
-        needed = abs(lead)
-        estimated_attacks = (needed * 25) // 100 + 1  # assuming 25e per attack, 4 pts per attack
+        try:
+            lead = war_data["war"]["score"]["faction"] - war_data["war"]["score"]["opposing"]
+            needed = abs(lead)
+            estimated_attacks = (needed * 25) // 100 + 1  # assuming 25e per attack, 4 pts per attack
 
-        await ctx.send(f"**Current War Status**\n"
-                      f"Lead: `{lead} points`\n"
-                      f"Approx. attacks to overtake: `{estimated_attacks}`")
+            await ctx.send(f"**Current War Status**\n"
+                          f"Lead: `{lead} points`\n"
+                          f"Approx. attacks to overtake: `{estimated_attacks}`")
+        except KeyError as ke:
+            await ctx.send(f"❌ Error: Invalid war data structure. Missing key: {ke}")
     except Exception as e:
-        await ctx.send("❌ Error checking war status. Try again later.")
+        await ctx.send(f"❌ Error checking war status: {str(e)}")
 
 @bot.command()
 async def target(ctx, *, user_id: str = None):
