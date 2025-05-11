@@ -18,7 +18,7 @@ from threading import Thread
 load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 TORN_API_KEY = os.getenv("TORN_API_KEY")
-FACTION_ID = int(os.getenv("FACTION_ID", "53295"))
+FACTION_ID = int(os.getenv("YOUR_FACTION_ID", "37537"))
 CHANNEL_ID = int(os.getenv("CHANNEL_ID", "1360732124033847387"))
 MESSAGE_CLEANUP_DELAY = 120  # Time in seconds to wait before deleting bot messages (2 minutes)
 
