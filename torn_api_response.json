@@ -158,7 +158,7 @@
           "id": 15595,
           "name": "Lusty Lizards",
           "score": 3033,
-          "chain": 507
+          "chain": 511
         },
         {
           "id": 37537,
@@ -179,7 +179,7 @@
           "id": 12863,
           "name": "WTF Healers",
           "score": 4974,
-          "chain": 0
+          "chain": 6
         },
         {
           "id": 37537,
@@ -206,7 +206,7 @@
           "id": 40624,
           "name": "Toxic Reign",
           "score": 20240,
-          "chain": 6390
+          "chain": 6403
         }
       ]
     },
@@ -227,7 +227,7 @@
           "id": 46588,
           "name": "Grim Reapers",
           "score": 3818,
-          "chain": 619
+          "chain": 627
         }
       ]
     },
@@ -242,7 +242,7 @@
           "id": 8795,
           "name": "The Brotherhood of Battle",
           "score": 3281,
-          "chain": 116
+          "chain": 122
         },
         {
           "id": 37537,
@@ -284,7 +284,7 @@
           "id": 35840,
           "name": "Baby Champers",
           "score": 23546,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -311,7 +311,7 @@
           "id": 46708,
           "name": "The Revenant",
           "score": 23730,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -332,7 +332,7 @@
           "id": 48002,
           "name": "Corrupted Phoenix",
           "score": 7799,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -410,7 +410,7 @@
           "id": 9356,
           "name": "SMTH - Party Animals",
           "score": 6157,
-          "chain": 511
+          "chain": 517
         },
         {
           "id": 37537,
@@ -494,7 +494,7 @@
           "id": 8076,
           "name": "Order Through Chaos",
           "score": 4026,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -620,7 +620,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 21223,
-          "chain": 1
+          "chain": 5
         },
         {
           "id": 37537,
@@ -641,7 +641,7 @@
           "id": 16312,
           "name": "39th Street Killers X",
           "score": 22891,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -683,7 +683,7 @@
           "id": 11747,
           "name": "Natural Selection II",
           "score": 0,
-          "chain": 0
+          "chain": 15
         },
         {
           "id": 37537,
@@ -767,7 +767,7 @@
           "id": 8076,
           "name": "Order Through Chaos",
           "score": 2010,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -788,7 +788,7 @@
           "id": 14581,
           "name": "Happy Vegemites",
           "score": 1505,
-          "chain": 89
+          "chain": 100
         },
         {
           "id": 37537,
@@ -809,7 +809,7 @@
           "id": 10566,
           "name": "The Rifle Company",
           "score": 55,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 37537,
@@ -851,7 +851,7 @@
           "id": 15930,
           "name": "HellBound",
           "score": 4,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -914,7 +914,7 @@
           "id": 37450,
           "name": "Wargasm-DNA",
           "score": 4923,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 37537,
@@ -1004,7 +1004,7 @@
           "id": 48848,
           "name": "Torn 4 Life",
           "score": 4841,
-          "chain": 14
+          "chain": 15
         }
       ]
     },
@@ -1019,7 +1019,7 @@
           "id": 10850,
           "name": "JUX Lite",
           "score": 5327,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -1082,7 +1082,7 @@
           "id": 15930,
           "name": "HellBound",
           "score": 4481,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -1151,7 +1151,7 @@
           "id": 41028,
           "name": "DP Medics",
           "score": 3978,
-          "chain": 0
+          "chain": 5
         }
       ]
     },
@@ -1481,7 +1481,7 @@
           "id": 7746,
           "name": "C.R.H",
           "score": 9832,
-          "chain": 115
+          "chain": 120
         },
         {
           "id": 37537,
@@ -1529,7 +1529,7 @@
           "id": 43752,
           "name": "Tweakers in Sneakers",
           "score": 6731,
-          "chain": 159
+          "chain": 160
         }
       ]
     },
@@ -1550,7 +1550,7 @@
           "id": 40518,
           "name": "Monarch Optimus",
           "score": 3668,
-          "chain": 343
+          "chain": 345
         }
       ]
     }

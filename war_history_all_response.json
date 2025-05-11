@@ -53,7 +53,7 @@
           "id": 16312,
           "name": "39th Street Killers X",
           "score": 29768,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -95,7 +95,7 @@
           "id": 16628,
           "name": "Chain Reaction",
           "score": 21952,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -158,7 +158,7 @@
           "id": 16335,
           "name": "SMTH - November Chopin",
           "score": 0,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -242,7 +242,7 @@
           "id": 9674,
           "name": "Smells like Sex",
           "score": 1645,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -284,7 +284,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 34091,
-          "chain": 2
+          "chain": 5
         },
         {
           "id": 42125,
@@ -410,7 +410,7 @@
           "id": 9524,
           "name": "|HT|",
           "score": 10581,
-          "chain": 2345
+          "chain": 2353
         },
         {
           "id": 42125,
@@ -473,7 +473,7 @@
           "id": 22887,
           "name": "Resilience",
           "score": 4065,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -515,7 +515,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 19876,
-          "chain": 2
+          "chain": 5
         },
         {
           "id": 42125,
@@ -578,7 +578,7 @@
           "id": 27223,
           "name": "Stompers",
           "score": 4931,
-          "chain": 3
+          "chain": 0
         },
         {
           "id": 42125,
@@ -599,7 +599,7 @@
           "id": 16628,
           "name": "Chain Reaction",
           "score": 17405,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -809,7 +809,7 @@
           "id": 12893,
           "name": "Darkline",
           "score": 26334,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -872,7 +872,7 @@
           "id": 16335,
           "name": "SMTH - November Chopin",
           "score": 9274,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -893,7 +893,7 @@
           "id": 8836,
           "name": "Vinerri",
           "score": 16051,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -935,7 +935,7 @@
           "id": 27223,
           "name": "Stompers",
           "score": 7947,
-          "chain": 3
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1103,7 +1103,7 @@
           "id": 36660,
           "name": "Premature Attackulation",
           "score": 1397,
-          "chain": 5
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1187,7 +1187,7 @@
           "id": 16335,
           "name": "SMTH - November Chopin",
           "score": 28437,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -1271,7 +1271,7 @@
           "id": 8468,
           "name": "Bloodbath and Beyond",
           "score": 17675,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1397,7 +1397,7 @@
           "id": 25025,
           "name": "DP Warriors",
           "score": 11004,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 42125,
@@ -1544,7 +1544,7 @@
           "id": 16040,
           "name": "Winter is Coming",
           "score": 8392,
-          "chain": 3722
+          "chain": 3729
         },
         {
           "id": 42125,
@@ -1607,7 +1607,7 @@
           "id": 15226,
           "name": "Whitenoise",
           "score": 601,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1628,7 +1628,7 @@
           "id": 10566,
           "name": "The Rifle Company",
           "score": 19688,
-          "chain": 2
+          "chain": 4
         },
         {
           "id": 42125,
