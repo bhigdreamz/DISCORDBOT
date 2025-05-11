@@ -1,0 +1,1566 @@
+{
+  "rankedwars": [
+    {
+      "id": 25201,
+      "start": 1746838800,
+      "end": 1746903760,
+      "target": 6000,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 6822,
+          "chain": 0
+        },
+        {
+          "id": 51794,
+          "name": "Great Tomb of Nazarick",
+          "score": 513,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 24710,
+      "start": 1745539200,
+      "end": 1745618435,
+      "target": 5100,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 9107,
+          "chain": 0
+        },
+        {
+          "id": 50579,
+          "name": "Trash Bandits",
+          "score": 4001,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 23903,
+      "start": 1743886800,
+      "end": 1743967451,
+      "target": 5400,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 7422,
+          "chain": 0
+        },
+        {
+          "id": 48989,
+          "name": "Brutal Truth",
+          "score": 1506,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 23368,
+      "start": 1742479200,
+      "end": 1742742057,
+      "target": 2500,
+      "winner": 50457,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4429,
+          "chain": 0
+        },
+        {
+          "id": 50457,
+          "name": "Tranquility Base",
+          "score": 6972,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 22927,
+      "start": 1741219200,
+      "end": 1741468019,
+      "target": 2160,
+      "winner": 41777,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 2188,
+          "chain": 0
+        },
+        {
+          "id": 41777,
+          "name": "The Swarm",
+          "score": 4348,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 22230,
+      "start": 1739455200,
+      "end": 1739748994,
+      "target": 2604,
+      "winner": 38319,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 2567,
+          "chain": 0
+        },
+        {
+          "id": 38319,
+          "name": "Unity Of Victory",
+          "score": 5172,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 20837,
+      "start": 1736622000,
+      "end": 1736812862,
+      "target": 10080,
+      "winner": 31764,
+      "factions": [
+        {
+          "id": 31764,
+          "name": "39th Street Warriors",
+          "score": 14289,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4158,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 20293,
+      "start": 1734112800,
+      "end": 1734135234,
+      "target": 11600,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 15595,
+          "name": "Lusty Lizards",
+          "score": 3033,
+          "chain": 503
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 14634,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 19919,
+      "start": 1733605200,
+      "end": 1733656933,
+      "target": 11500,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 12863,
+          "name": "WTF Healers",
+          "score": 4974,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 16478,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 19507,
+      "start": 1732395600,
+      "end": 1732476301,
+      "target": 11400,
+      "winner": 40624,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 8838,
+          "chain": 0
+        },
+        {
+          "id": 40624,
+          "name": "Toxic Reign",
+          "score": 20240,
+          "chain": 6383
+        }
+      ]
+    },
+    {
+      "id": 19203,
+      "start": 1730998800,
+      "end": 1731254456,
+      "target": 5616,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 9451,
+          "chain": 0
+        },
+        {
+          "id": 46588,
+          "name": "Grim Reapers",
+          "score": 3818,
+          "chain": 614
+        }
+      ]
+    },
+    {
+      "id": 18853,
+      "start": 1729879200,
+      "end": 1730314855,
+      "target": 236,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 8795,
+          "name": "The Brotherhood of Battle",
+          "score": 3281,
+          "chain": 115
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3562,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 18566,
+      "start": 1728748800,
+      "end": 1728762481,
+      "target": 8100,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37530,
+          "name": "Crossfire",
+          "score": 790,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 8899,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 18237,
+      "start": 1728057600,
+      "end": 1728158833,
+      "target": 10640,
+      "winner": 35840,
+      "factions": [
+        {
+          "id": 35840,
+          "name": "Baby Champers",
+          "score": 23546,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 12906,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 17576,
+      "start": 1726160400,
+      "end": 1726294680,
+      "target": 9976,
+      "winner": 46708,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 13751,
+          "chain": 0
+        },
+        {
+          "id": 46708,
+          "name": "The Revenant",
+          "score": 23730,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 17121,
+      "start": 1724954400,
+      "end": 1725059272,
+      "target": 11280,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 19079,
+          "chain": 0
+        },
+        {
+          "id": 48002,
+          "name": "Corrupted Phoenix",
+          "score": 7799,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 16781,
+      "start": 1723820400,
+      "end": 1723874478,
+      "target": 11300,
+      "winner": 37786,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3019,
+          "chain": 0
+        },
+        {
+          "id": 37786,
+          "name": "Momentum",
+          "score": 14321,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 16529,
+      "start": 1723143600,
+      "end": 1723385783,
+      "target": 6720,
+      "winner": 36274,
+      "factions": [
+        {
+          "id": 36274,
+          "name": "Violent Resolution II",
+          "score": 12888,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 6162,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 16266,
+      "start": 1722006000,
+      "end": 1722319255,
+      "target": 3888,
+      "winner": 7935,
+      "factions": [
+        {
+          "id": 7935,
+          "name": "Collective Bootcamp",
+          "score": 7238,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3275,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 16062,
+      "start": 1721314800,
+      "end": 1721689258,
+      "target": 2812,
+      "winner": 9356,
+      "factions": [
+        {
+          "id": 9356,
+          "name": "SMTH - Party Animals",
+          "score": 6157,
+          "chain": 507
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3270,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 15831,
+      "start": 1720886400,
+      "end": 1720928060,
+      "target": 14500,
+      "winner": 6799,
+      "factions": [
+        {
+          "id": 6799,
+          "name": "The Untouchables",
+          "score": 14510,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 7,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 15549,
+      "start": 1720191600,
+      "end": 1720229351,
+      "target": 13800,
+      "winner": 13377,
+      "factions": [
+        {
+          "id": 13377,
+          "name": "The Brotherhood of War",
+          "score": 14869,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1062,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 15500,
+      "start": 1719586800,
+      "end": 1719656456,
+      "target": 14000,
+      "winner": 15222,
+      "factions": [
+        {
+          "id": 15222,
+          "name": "Mortiferi",
+          "score": 17132,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3125,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 15206,
+      "start": 1719086400,
+      "end": 1719298855,
+      "target": 9536,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 8076,
+          "name": "Order Through Chaos",
+          "score": 4026,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 13569,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 14787,
+      "start": 1717682400,
+      "end": 1718010055,
+      "target": 4576,
+      "winner": 36134,
+      "factions": [
+        {
+          "id": 36134,
+          "name": "SMTH - Silver Hand",
+          "score": 8624,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4006,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 14681,
+      "start": 1717167600,
+      "end": 1717199467,
+      "target": 17400,
+      "winner": 10610,
+      "factions": [
+        {
+          "id": 10610,
+          "name": "NPO - Strength",
+          "score": 19925,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 2525,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 14349,
+      "start": 1716559200,
+      "end": 1716861656,
+      "target": 6981,
+      "winner": 11796,
+      "factions": [
+        {
+          "id": 11796,
+          "name": "SMTH - Bright Summit",
+          "score": 11123,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4002,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 13872,
+      "start": 1714762800,
+      "end": 1715063995,
+      "target": 5040,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 16299,
+          "name": "Neon Cartel",
+          "score": 3279,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 8321,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 13620,
+      "start": 1714053600,
+      "end": 1714168409,
+      "target": 16192,
+      "winner": 946,
+      "factions": [
+        {
+          "id": 946,
+          "name": "PT-IronHearts",
+          "score": 21208,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 5016,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 13499,
+      "start": 1713463200,
+      "end": 1713555277,
+      "target": 16660,
+      "winner": 230,
+      "factions": [
+        {
+          "id": 230,
+          "name": "PT-Family",
+          "score": 21223,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4559,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 13286,
+      "start": 1713042000,
+      "end": 1713148092,
+      "target": 16544,
+      "winner": 16312,
+      "factions": [
+        {
+          "id": 16312,
+          "name": "39th Street Killers X",
+          "score": 22891,
+          "chain": 1
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 6347,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 13177,
+      "start": 1712260800,
+      "end": 1712430055,
+      "target": 13452,
+      "winner": 231,
+      "factions": [
+        {
+          "id": 231,
+          "name": "Destructive Anomaly",
+          "score": 24203,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 10603,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12988,
+      "start": 1711645200,
+      "end": 1712041255,
+      "target": 2327,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 11747,
+          "name": "Natural Selection II",
+          "score": 0,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 2389,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12817,
+      "start": 1711141200,
+      "end": 1711425655,
+      "target": 7656,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37426,
+          "name": "Monarch Embassy",
+          "score": 2630,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 10377,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12441,
+      "start": 1710536400,
+      "end": 1710824455,
+      "target": 7439,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 1149,
+          "name": "WTF",
+          "score": 2507,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 10020,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12372,
+      "start": 1709928000,
+      "end": 1710223257,
+      "target": 6888,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 27312,
+          "name": "SA Succession",
+          "score": 2949,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 9990,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12170,
+      "start": 1709326800,
+      "end": 1709611255,
+      "target": 5896,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 8076,
+          "name": "Order Through Chaos",
+          "score": 2010,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 7958,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 11904,
+      "start": 1708628400,
+      "end": 1708887655,
+      "target": 4845,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 14581,
+          "name": "Happy Vegemites",
+          "score": 1505,
+          "chain": 78
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 6351,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 11664,
+      "start": 1708009200,
+      "end": 1708290055,
+      "target": 4410,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 10566,
+          "name": "The Rifle Company",
+          "score": 55,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4506,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 11612,
+      "start": 1707516000,
+      "end": 1707714055,
+      "target": 5100,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 21040,
+          "name": "Monarch Vanguard",
+          "score": 0,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 5109,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 11268,
+      "start": 1706889600,
+      "end": 1707105656,
+      "target": 4914,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 15930,
+          "name": "HellBound",
+          "score": 4,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4944,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 10850,
+      "start": 1705615200,
+      "end": 1705962900,
+      "target": 1809,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 22968,
+          "name": "Revolutionary Guerrillas",
+          "score": 111,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1925,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 10054,
+      "start": 1702162800,
+      "end": 1702458056,
+      "target": 1558,
+      "winner": 48188,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 440,
+          "chain": 0
+        },
+        {
+          "id": 48188,
+          "name": "KITA",
+          "score": 2032,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 9658,
+      "start": 1700751600,
+      "end": 1700895151,
+      "target": 3864,
+      "winner": 37450,
+      "factions": [
+        {
+          "id": 37450,
+          "name": "Wargasm-DNA",
+          "score": 4923,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1056,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 9306,
+      "start": 1699714800,
+      "end": 1700067480,
+      "target": 962,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4019,
+          "chain": 0
+        },
+        {
+          "id": 49297,
+          "name": "Shaggy Hi-Fidelity",
+          "score": 3054,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 8442,
+      "start": 1696708800,
+      "end": 1697001267,
+      "target": 1722,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3290,
+          "chain": 0
+        },
+        {
+          "id": 48680,
+          "name": "BlackWatch",
+          "score": 1566,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 8320,
+      "start": 1696046400,
+      "end": 1696292323,
+      "target": 2090,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3451,
+          "chain": 0
+        },
+        {
+          "id": 48572,
+          "name": "Grand Code",
+          "score": 1342,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 7779,
+      "start": 1693054800,
+      "end": 1693200489,
+      "target": 3320,
+      "winner": 48848,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1519,
+          "chain": 0
+        },
+        {
+          "id": 48848,
+          "name": "Torn 4 Life",
+          "score": 4841,
+          "chain": 13
+        }
+      ]
+    },
+    {
+      "id": 7455,
+      "start": 1691870400,
+      "end": 1692016067,
+      "target": 3652,
+      "winner": 10850,
+      "factions": [
+        {
+          "id": 10850,
+          "name": "JUX Lite",
+          "score": 5327,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1671,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5400,
+      "start": 1681405200,
+      "end": 1681482325,
+      "target": 4200,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 5733,
+          "chain": 0
+        },
+        {
+          "id": 41259,
+          "name": "SYN - Battleground",
+          "score": 1379,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5297,
+      "start": 1680793200,
+      "end": 1680953924,
+      "target": 3081,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 10044,
+          "name": "Extra-Small Executioners",
+          "score": 1396,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4478,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5117,
+      "start": 1680188400,
+      "end": 1680382856,
+      "target": 3105,
+      "winner": 15930,
+      "factions": [
+        {
+          "id": 15930,
+          "name": "HellBound",
+          "score": 4481,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1371,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5019,
+      "start": 1679666400,
+      "end": 1679933325,
+      "target": 1911,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 2962,
+          "chain": 0
+        },
+        {
+          "id": 49147,
+          "name": "Gladiators",
+          "score": 1050,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4829,
+      "start": 1678554000,
+      "end": 1678863655,
+      "target": 1480,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 13525,
+          "name": "Wargasm 2.0",
+          "score": 2682,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4175,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4748,
+      "start": 1677888000,
+      "end": 1677999655,
+      "target": 3404,
+      "winner": 41028,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 568,
+          "chain": 0
+        },
+        {
+          "id": 41028,
+          "name": "DP Medics",
+          "score": 3978,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4555,
+      "start": 1676638800,
+      "end": 1676869935,
+      "target": 2419,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4022,
+          "chain": 0
+        },
+        {
+          "id": 48036,
+          "name": "Knights of Torn",
+          "score": 1600,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4476,
+      "start": 1676034000,
+      "end": 1676224856,
+      "target": 2240,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3402,
+          "chain": 0
+        },
+        {
+          "id": 49406,
+          "name": "Aftermath",
+          "score": 1134,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4350,
+      "start": 1675342800,
+      "end": 1675481351,
+      "target": 2975,
+      "winner": 48188,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 266,
+          "chain": 0
+        },
+        {
+          "id": 48188,
+          "name": "KITA",
+          "score": 3244,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4259,
+      "start": 1674738000,
+      "end": 1674859419,
+      "target": 3330,
+      "winner": 42133,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 483,
+          "chain": 0
+        },
+        {
+          "id": 42133,
+          "name": "Ludus Magnus",
+          "score": 3813,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4133,
+      "start": 1674320400,
+      "end": 1674438269,
+      "target": 3094,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 31828,
+          "name": "Jailbirds",
+          "score": 589,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3688,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4017,
+      "start": 1673564400,
+      "end": 1673829831,
+      "target": 1850,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 4658,
+          "chain": 0
+        },
+        {
+          "id": 48173,
+          "name": "Running with Scissors",
+          "score": 2805,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3907,
+      "start": 1672894800,
+      "end": 1673028974,
+      "target": 2752,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 10969,
+          "name": "The Red Tree House",
+          "score": 311,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3063,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3623,
+      "start": 1670536800,
+      "end": 1670828455,
+      "target": 1344,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1851,
+          "chain": 0
+        },
+        {
+          "id": 48246,
+          "name": "Knockout - Care Corner",
+          "score": 502,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3350,
+      "start": 1668780000,
+      "end": 1668952939,
+      "target": 2550,
+      "winner": 19982,
+      "factions": [
+        {
+          "id": 19982,
+          "name": "Midnight Ghosts",
+          "score": 4317,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1758,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3011,
+      "start": 1665849600,
+      "end": 1666071919,
+      "target": 2542,
+      "winner": 39781,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1662,
+          "chain": 0
+        },
+        {
+          "id": 39781,
+          "name": "Zenith Rising",
+          "score": 4206,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2924,
+      "start": 1665154800,
+      "end": 1665463299,
+      "target": 1292,
+      "winner": 48703,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 2336,
+          "chain": 0
+        },
+        {
+          "id": 48703,
+          "name": "Prophets",
+          "score": 3635,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2822,
+      "start": 1664654400,
+      "end": 1664769655,
+      "target": 3458,
+      "winner": 43790,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 758,
+          "chain": 0
+        },
+        {
+          "id": 43790,
+          "name": "SKS Adapted",
+          "score": 4216,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2719,
+      "start": 1663938000,
+      "end": 1664279893,
+      "target": 1131,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 18090,
+          "name": "REK&amp;morty",
+          "score": 1004,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 2145,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2260,
+      "start": 1660222800,
+      "end": 1660439039,
+      "target": 2205,
+      "winner": 42911,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 1195,
+          "chain": 0
+        },
+        {
+          "id": 42911,
+          "name": "TeamRocket",
+          "score": 3405,
+          "chain": 5
+        }
+      ]
+    },
+    {
+      "id": 1902,
+      "start": 1657288800,
+      "end": 1657620248,
+      "target": 1302,
+      "winner": 22887,
+      "factions": [
+        {
+          "id": 22887,
+          "name": "Resilience",
+          "score": 5103,
+          "chain": 0
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 3798,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1116,
+      "start": 1651334400,
+      "end": 1651581709,
+      "target": 3245,
+      "winner": 7746,
+      "factions": [
+        {
+          "id": 7746,
+          "name": "C.R.H",
+          "score": 9832,
+          "chain": 113
+        },
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 6585,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1019,
+      "start": 1649790000,
+      "end": 1649918130,
+      "target": 5104,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 6243,
+          "chain": 0
+        },
+        {
+          "id": 41269,
+          "name": "Dead_Space",
+          "score": 1139,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 410,
+      "start": 1643378400,
+      "end": 1643673860,
+      "target": 2296,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 9031,
+          "chain": 0
+        },
+        {
+          "id": 43752,
+          "name": "Tweakers in Sneakers",
+          "score": 6731,
+          "chain": 158
+        }
+      ]
+    },
+    {
+      "id": 315,
+      "start": 1642615200,
+      "end": 1642790185,
+      "target": 3450,
+      "winner": 37537,
+      "factions": [
+        {
+          "id": 37537,
+          "name": "SYN - The Regiment",
+          "score": 7119,
+          "chain": 0
+        },
+        {
+          "id": 40518,
+          "name": "Monarch Optimus",
+          "score": 3668,
+          "chain": 333
+        }
+      ]
+    }
+  ],
+  "_metadata": {
+    "prev": null,
+    "next": null,
+    "links": {
+      "prev": null,
+      "next": null
+    }
+  }
+}

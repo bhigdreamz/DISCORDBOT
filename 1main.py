@@ -323,21 +323,12 @@ async def get_opponent_faction():
                 opponent_faction = None
                 our_faction_data = None
                 
-                # Get faction data - make sure factions is a list before iterating
-                factions = war.get("factions", [])
-                if isinstance(factions, list):
-                    for faction in factions:
-                        if int(faction.get("id", 0)) == FACTION_ID:
-                            our_faction_data = faction
-                        else:
-                            opponent_faction = faction
-                elif isinstance(factions, dict):
-                    # Handle case where factions might be a dictionary
-                    for faction_id, faction in factions.items():
-                        if int(faction_id) == FACTION_ID or int(faction.get("id", 0)) == FACTION_ID:
-                            our_faction_data = faction
-                        else:
-                            opponent_faction = faction
+                # Get faction data
+                for faction in war["factions"]:
+                    if int(faction["id"]) == FACTION_ID:
+                        our_faction_data = faction
+                    else:
+                        opponent_faction = faction
                 
                 if opponent_faction:
                     print(f"ATTACK ALERT#{war_id}")
@@ -407,18 +398,11 @@ class WarCommands(app_commands.Group):
         await interaction.response.defer(ephemeral=False)
         await show_war_history(interaction, war_id)
     
-    @app_commands.command(name="leaderboard", description="View official member contributions")
-    @app_commands.describe(war_id="Optional war ID to view (defaults to most recent completed war)")
+    @app_commands.command(name="leaderboard", description="View top faction contributors")
+    @app_commands.describe(war_id="Optional war ID to see past war contributors")
     async def leaderboard(self, interaction: discord.Interaction, war_id: str = None):
         await interaction.response.defer(ephemeral=False)
         await show_leaderboard(interaction, war_id)
-        
-    @app_commands.command(name="result", description="View detailed war result including rewards")
-    @app_commands.describe(war_id="Optional war ID to view (defaults to most recent completed war)")
-    async def war_result(self, interaction: discord.Interaction, war_id: str = None):
-        """View detailed war result including rank changes and rewards"""
-        await interaction.response.defer(ephemeral=False)
-        await show_war_result(interaction, war_id)
 
     @app_commands.command(name="record", description="Record an attack for leaderboard tracking")
     @app_commands.describe(
@@ -878,11 +862,7 @@ async def show_company_info(interaction: discord.Interaction, input_id: str):
         await interaction.followup.send(f"Error getting company info: {str(e)}")
 
 async def show_war_history(interaction: discord.Interaction, war_id: str = None):
-    """View war history using the v2 API endpoints
-    
-    This has been updated to handle both v2 and v1 API formats and uses the
-    /v2/faction/rankedwars endpoint to show all wars for the faction in the .env file
-    """
+    """View war history using the v2 API endpoints"""
     try:
         await interaction.followup.send("Fetching war history from Torn API...", ephemeral=True)
         
@@ -890,8 +870,7 @@ async def show_war_history(interaction: discord.Interaction, war_id: str = None)
         if war_id:
             # Try to get the war from the v2 API first
             try:
-                # Use the endpoint that gets all wars for our faction
-                url = f"https://api.torn.com/v2/faction/rankedwars?key={TORN_API_KEY}"
+                url = f"https://api.torn.com/v2/faction/{FACTION_ID}/rankedwars?key={TORN_API_KEY}"
                 api_data = await get_json(url)
                 
                 api_war_data = None
@@ -908,22 +887,12 @@ async def show_war_history(interaction: discord.Interaction, war_id: str = None)
                     our_data = None
                     opponent_data = None
                     
-                    # Get faction details - handle both list and dict format
-                    factions = api_war_data.get("factions", [])
-                    if isinstance(factions, list):
-                        for faction in factions:
-                            if int(faction.get("id", 0)) == FACTION_ID:
-                                our_data = faction
-                            else:
-                                opponent_data = faction
-                    elif isinstance(factions, dict):
-                        # Handle case where factions might be a dictionary
-                        for faction_id, faction in factions.items():
-                            faction_id_int = int(faction_id) if faction_id.isdigit() else 0
-                            if faction_id_int == FACTION_ID or int(faction.get("id", 0)) == FACTION_ID:
-                                our_data = faction
-                            else:
-                                opponent_data = faction
+                    # Get faction details
+                    for faction in api_war_data["factions"]:
+                        if int(faction["id"]) == FACTION_ID:
+                            our_data = faction
+                        else:
+                            opponent_data = faction
                     
                     if not our_data or not opponent_data:
                         await interaction.followup.send(f"❌ Incomplete data for war {war_id}.", ephemeral=True)
@@ -1114,27 +1083,7 @@ async def show_war_history(interaction: discord.Interaction, war_id: str = None)
                 url = f"https://api.torn.com/v2/faction/rankedwars?from={current_year-1}&to={current_year+1}&sort=DESC&key={TORN_API_KEY}"
                 api_data = await get_json(url)
                 
-                # Debug: Save the raw response for troubleshooting
-                with open('war_history_all_response.json', 'w') as f:
-                    json.dump(api_data, f, indent=2)
-                
-                print("Fetched war history list data from API")
-                print(f"API response keys: {list(api_data.keys())}")
-                
-                if "error" in api_data:
-                    print(f"API Error: {api_data['error']}")
-                    await interaction.followup.send(f"API Error: {api_data['error']}. Checking local history.", ephemeral=True)
-                    
-                    # Fallback to local history code
-                    if not war_history:
-                        await interaction.followup.send("No past wars found in history either.", ephemeral=True)
-                        return
-                    
-                    # (original code for displaying from local history)
-                    return
-                
                 if "rankedwars" not in api_data or not api_data["rankedwars"]:
-                    print("No rankedwars found in API response")
                     await interaction.followup.send("No wars found in API. Checking local history.", ephemeral=True)
                     
                     if not war_history:
@@ -1144,8 +1093,6 @@ async def show_war_history(interaction: discord.Interaction, war_id: str = None)
                     # Fallback to original local history code
                     # (original code for displaying from local history)
                     return
-                
-                print(f"Found {len(api_data['rankedwars'])} wars in API response")
                 
                 # Process wars from the v2 API
                 embed = discord.Embed(
@@ -1163,40 +1110,14 @@ async def show_war_history(interaction: discord.Interaction, war_id: str = None)
                     war_id = str(war["id"])
                     start_date = datetime.fromtimestamp(war["start"]).strftime('%b %d')
                     
-                    # Find our faction and opponent faction - handle different formats
+                    # Find our faction and opponent faction
                     our_data = None
                     opponent_data = None
-                    
-                    # Handle different faction data formats based on API test
-                    factions = war.get("factions", [])
-                    
-                    print(f"Processing war {war.get('id')} factions data type: {type(factions)}")
-                    
-                    if isinstance(factions, list):
-                        # List format (confirmed from API test)
-                        for faction in factions:
-                            faction_id = int(faction.get("id", 0))
-                            if faction_id == FACTION_ID:
-                                our_data = faction
-                                print(f"Found our faction in list data: {faction.get('name', 'unknown')}")
-                            else:
-                                opponent_data = faction
-                                print(f"Found opponent faction in list data: {faction.get('name', 'unknown')}")
-                    elif isinstance(factions, dict):
-                        # Dictionary format (alternative format)
-                        for faction_id, faction in factions.items():
-                            faction_id_int = int(faction_id) if faction_id.isdigit() else 0
-                            if faction_id_int == FACTION_ID or int(faction.get("id", 0)) == FACTION_ID:
-                                our_data = faction
-                                print(f"Found our faction in dict data: {faction.get('name', 'unknown')}")
-                            else:
-                                opponent_data = faction
-                                print(f"Found opponent faction in dict data: {faction.get('name', 'unknown')}")
-                    
-                    if not our_data:
-                        print(f"WARNING: Could not find our faction (ID: {FACTION_ID}) in war {war.get('id')}")
-                    if not opponent_data:
-                        print(f"WARNING: Could not find opponent faction in war {war.get('id')}")
+                    for faction in war["factions"]:
+                        if int(faction["id"]) == FACTION_ID:
+                            our_data = faction
+                        else:
+                            opponent_data = faction
                     
                     if not our_data or not opponent_data:
                         continue
@@ -1348,117 +1269,21 @@ def calculate_attack_points(attack):
     1. Use respect gained if available
     2. Otherwise count successful attacks as 1 point each
     """
-    # Check API format (v1 vs v2) and extract respect and result accordingly
-    respect = 0
-    result = ""
+    # First check if there's respect data available
+    respect = attack.get("respect_gain", 0)
     
-    # Debug 
-    print(f"Calculating points for attack: {attack}")
-    
-    # V2 API format (from our API test)
-    if "respect_gain" in attack:
-        respect = attack.get("respect_gain", 0)
-    elif "respect" in attack:
-        # Alternative format where it might be just "respect" 
-        respect = attack.get("respect", 0)
-    
-    # V2 API format has result key
-    if "result" in attack:
-        if isinstance(attack["result"], dict) and "respect" in attack["result"]:
-            # If result has a nested respect value
-            respect = attack["result"]["respect"]
-            result = "Success"  # Default success if we have respect
-        else:
-            # Direct result value
-            result = attack.get("result", "")
-    
-    # Debug
-    print(f"Attack respect: {respect}, result: {result}")
+    # Get the attack result
+    result = attack.get("result", "")
     
     # If the attack was successful and we have respect data, use that
     if respect > 0:
-        print(f"Using respect value: {respect}")
         return respect
     
     # Otherwise, simple counting system: 1 point for successful attacks, 0 for failed
-    successful_results = ["Mugged", "Hospitalized", "Attacked", "Stalemate", "Assist", "Success"]
-    if result in successful_results:
-        print(f"Using default 1.0 point for successful attack: {result}")
+    if result in ["Mugged", "Hospitalized", "Attacked", "Stalemate", "Assist"]:
         return 1.0  # Successful attack
     else:
-        print(f"Attack failed (no points): {result}")
         return 0.0  # Failed attack (Lost, Escape, Timeout, etc.)
-
-async def fetch_war_leaderboard_data(war_id=None):
-    """Fetch detailed war contribution data from the rankedwarreport endpoint
-    
-    This endpoint provides per-member scores for completed wars, and is the most
-    accurate source of contribution data for completed wars.
-    
-    Args:
-        war_id: Optional. The war ID to fetch data for. If None, gets the most recent completed war.
-    
-    Returns:
-        A tuple with (contributors list, is_official, war_data) where:
-        - contributors: list of member contribution data or None if not found/not completed
-        - is_official: boolean indicating if this is official API data
-        - war_data: complete war data including rewards, timestamps, etc.
-    """
-    try:
-        # Use the rankedwarreport endpoint which provides official member scores for completed wars
-        url = f"https://api.torn.com/v2/faction/{FACTION_ID}/rankedwarreport?key={TORN_API_KEY}"
-        api_data = await get_json(url)
-        
-        # Debug the response
-        if war_id:
-            print(f"Fetching rankedwarreport data for specific war ID {war_id}")
-        else:
-            print("Fetching rankedwarreport data for most recent completed war")
-        
-        if "rankedwarreport" in api_data:
-            report_data = api_data["rankedwarreport"]
-            
-            # If no specific war ID requested, use the war from the report (most recent completed)
-            if not war_id:
-                print(f"Using most recent completed war: {report_data.get('id')}")
-                war_id = str(report_data.get('id'))
-            
-            # Verify this is the correct war we're looking for
-            if str(report_data.get("id")) == str(war_id):
-                print(f"Found matching war data in rankedwarreport for war ID {war_id}")
-                
-                # Find our faction in the data
-                our_faction_data = None
-                for faction in report_data.get("factions", []):
-                    if int(faction.get("id", 0)) == FACTION_ID:
-                        our_faction_data = faction
-                        break
-                
-                if our_faction_data and "members" in our_faction_data:
-                    # Process member data into the format we need
-                    contributors = {}
-                    for member in our_faction_data["members"]:
-                        member_id = str(member["id"])
-                        contributors[member_id] = {
-                            "id": member_id,
-                            "name": member["name"],
-                            "attacks": member["attacks"],
-                            "points": member["score"],
-                            "level": member["level"]
-                        }
-                    
-                    # Sort contributors by points
-                    sorted_contributors = sorted(contributors.values(), key=lambda x: x["points"], reverse=True)
-                    return sorted_contributors, True, report_data  # Return full report data for war_result command
-            else:
-                print(f"War ID mismatch in rankedwarreport: got {report_data.get('id')}, expected {war_id}")
-        
-        # If we get here, either the war isn't completed yet or something else went wrong
-        return None, False, None
-        
-    except Exception as e:
-        print(f"Error fetching rankedwarreport data: {str(e)}")
-        return None, False, None
 
 async def fetch_attacks_from_api(war_start_time):
     """Fetch attacks from the Torn API attacksfull endpoint
@@ -1475,116 +1300,40 @@ async def fetch_attacks_from_api(war_start_time):
         print(f"Fetching attacks from {datetime.fromtimestamp(war_start_time).strftime('%Y-%m-%d %H:%M')} to now")
         data = await get_json(url)
         
-        # Save the API response for debugging
-        with open('api_attacks_response.json', 'w') as f:
-            json.dump(data, f, indent=2)
-        
         if "attacks" not in data:
             print("No attacks found in API response")
-            if "error" in data:
-                print(f"API Error: {data['error']}")
             return []
-            
-        # Debug: How many attacks total?
-        total_attacks = len(data["attacks"])
-        print(f"Found {total_attacks} total attacks in API response")
             
         # Filter attacks to only include those against the opponent faction
         opponent_id = current_war_data.get("opponent_id")
         if not opponent_id:
             print("No opponent faction ID found")
             return []
-        
-        print(f"Filtering for attacks against opponent faction: {opponent_id}")
             
         war_attacks = []
         
-        # Handle different data structures for attacks
-        if isinstance(data["attacks"], dict):
-            # Dictionary format (v1 API)
-            attack_items = data["attacks"].items()
-        else:
-            # List format (v2 API based on our tests)
-            attack_items = [(str(i), attack) for i, attack in enumerate(data["attacks"])]
-        
-        for attack_id, attack in attack_items:
-            # Print samples of the attack structure for debugging
-            if attack_id == '0':  # Just log the first one as a sample
-                print(f"Sample attack structure: {attack}")
-                print(f"Attack keys: {list(attack.keys())}")
-            
+        for attack_id, attack in data["attacks"].items():
             # Check if the defender is in the opponent faction
-            # Handle both v1 and v2 API formats
-            defender_faction = None
-            defender_id = None
-            
-            # V2 format (confirmed from our API test)
-            if "defender" in attack and isinstance(attack["defender"], dict):
-                defender = attack["defender"]
-                if "faction" in defender:
-                    if isinstance(defender["faction"], dict) and "id" in defender["faction"]:
-                        defender_faction = defender["faction"]["id"]
-                    elif isinstance(defender["faction"], int):
-                        defender_faction = defender["faction"]
-                
-                if "id" in defender:
-                    defender_id = defender["id"]
-            
-            # V1 format (previous implementation, keep as fallback)
-            elif "defender_faction" in attack:
-                defender_faction = attack.get("defender_faction")
-                defender_id = attack.get("defender_id")
-            
-            # Debug
+            defender_faction = attack.get("defender_faction")
             if defender_faction and str(defender_faction) == str(opponent_id):
-                print(f"Found relevant attack: {attack_id} against opponent faction {defender_faction}")
-            
-            # Process only attacks against the opponent faction
-            if defender_faction and str(defender_faction) == str(opponent_id):
-                # Get attacker details - handle both formats
-                attacker_id = None
-                
-                # V2 format
-                if "attacker" in attack and isinstance(attack["attacker"], dict):
-                    attacker = attack["attacker"]
-                    if "id" in attacker:
-                        attacker_id = attacker["id"]
-                
-                # V1 format (fallback)
-                elif "attacker_id" in attack:
-                    attacker_id = attack.get("attacker_id")
-                
-                # Skip if we can't determine the attacker
+                # Get attack details
+                attacker_id = attack.get("attacker_id")
                 if not attacker_id:
-                    continue
+                    attacker_id = bot.user.id  # Use bot ID as fallback
                     
-                # Skip if we can't determine the defender
+                defender_id = attack.get("defender_id")
                 if not defender_id:
-                    continue
+                    continue  # Skip if no defender ID
                     
                 # Calculate points using the consistent calculation function
                 points = calculate_attack_points(attack)
                     
-                # Get respect and result from the attack data
-                respect = attack.get("respect_gain", 0)
-                result = attack.get("result", "")
-                    
-                # Get timestamp - handle both API formats
-                timestamp = int(datetime.now().timestamp())  # Default to now
-                
-                # V2 API format uses "started" instead of "timestamp_started"
-                if "started" in attack:
-                    timestamp = attack.get("started")
-                # Fallback to V1 format
-                elif "timestamp_started" in attack:
-                    timestamp = attack.get("timestamp_started")
-                
                 # Add to our list
                 war_attacks.append({
                     "attacker_id": str(attacker_id),
                     "defender_id": str(defender_id),
                     "points": points,
-                    "timestamp": timestamp,
+                    "timestamp": attack.get("timestamp_started", int(datetime.now().timestamp())),
                     "respect": respect,
                     "result": result
                 })
@@ -1595,153 +1344,228 @@ async def fetch_attacks_from_api(war_start_time):
         return []
 
 async def show_leaderboard(interaction: discord.Interaction, war_id: str = None, page: int = 1):
-    """View faction contributors using official API data with pagination
-    
-    For completed wars, uses the /v2/faction/{ID}/rankedwarreport endpoint to get official
-    member scores. For ongoing wars, shows message explaining that scores are only
-    available after war completion.
+    """View faction contributors using automatic API data with pagination
     
     Args:
         interaction: The Discord interaction
-        war_id: Optional war ID to show (defaults to most recent completed war)
+        war_id: Optional war ID to show (defaults to current war)
         page: Page number to show (defaults to 1)
     """
     try:
         await interaction.followup.send("Generating leaderboard. Please wait...", ephemeral=True)
         
-        # First, check if a specific war ID was requested
-        target_war_id = war_id
-        is_current_war = False
+        # Determine which war to show
+        current_war_id = current_war_data.get("war_id")
+        target_war_id = war_id if war_id else current_war_id
         
-        # If no war ID specified, try to get most recent completed war from API
         if not target_war_id:
-            await interaction.followup.send("No war ID specified. Checking for most recent completed war...", ephemeral=True)
-        
-        # Try to get official member scores for the war (only available for completed wars)
-        sorted_contributors, is_official, war_data = await fetch_war_leaderboard_data(target_war_id)
-        
-        # If we don't have official scores, check if this is the current war
-        if not sorted_contributors:
-            current_war_id = current_war_data.get("war_id")
-            is_current_war = target_war_id == current_war_id if target_war_id else False
+            await interaction.followup.send("❌ No active war and no war ID specified.")
+            return
             
-            if is_current_war or (not target_war_id and current_war_id):
-                # This is either the current war or no war ID was specified and we have an active war
-                if not target_war_id:
-                    target_war_id = current_war_id
-                    is_current_war = True
+        # Get war data to determine start time for API calls
+        war_start_time = 0
+        is_current_war = target_war_id == current_war_id
+        
+        if is_current_war:
+            war_start_time = current_war_data.get("start_time", 0)
+        else:
+            # Check war history for past wars
+            for war in war_history:
+                if str(war.get("war_id")) == str(target_war_id):
+                    war_start_time = war.get("start_time", 0)
+                    break
+                    
+        # Try to get API data if it's the current war
+        api_attacks = []
+        api_fetch_success = False
+        
+        if is_current_war and war_start_time > 0:
+            await interaction.followup.send("Fetching real-time attack data from Torn API...", ephemeral=True)
+            try:
+                # Try v2 API first
+                api_attacks = await fetch_attacks_from_api(war_start_time)
                 
-                await interaction.followup.send(
-                    "⚠️ This war is still in progress. "
-                    "Official member scores are only available after war completion. "
-                    "Try using the `/war result` command after the war ends.",
-                    ephemeral=False
-                )
-                return
-            else:
-                # No data found for specified war ID
-                await interaction.followup.send(
-                    f"❌ Could not find completed war{' with ID ' + target_war_id if target_war_id else ''}. "
-                    "If this war is still ongoing, please wait for it to finish.",
-                    ephemeral=True
-                )
-                return
+                if api_attacks:
+                    api_fetch_success = True
+                else:
+                    # If v2 returns empty but doesn't error, log it
+                    print("API v2 returned empty results, but no error occurred")
+                    
+            except Exception as e:
+                # If v2 fails with an error, log it and try v1 as fallback
+                error_msg = str(e)
+                await interaction.followup.send(f"Error with API v2: {error_msg[:100]}... Trying fallback.", ephemeral=True)
+                print(f"Error with API v2: {error_msg}")
                 
-        # We now have official contributor data from the completed war
+                # Try API v1 as fallback
+                try:
+                    await interaction.followup.send("Trying API v1 as fallback...", ephemeral=True)
+                    api_attacks = await fetch_attacks_from_api_v1(war_start_time)
+                    
+                    if api_attacks:
+                        api_fetch_success = True
+                        await interaction.followup.send(f"Success! Found {len(api_attacks)} attacks using API v1.", ephemeral=True)
+                    else:
+                        await interaction.followup.send("No attack data found with API v1 either.", ephemeral=True)
+                except Exception as v1_error:
+                    await interaction.followup.send(f"API v1 fallback also failed: {str(v1_error)[:100]}...", ephemeral=True)
+                    print(f"Error with API v1 fallback: {str(v1_error)}")
+            
+        # Check if we have local data for this war
+        has_local_data = target_war_id in attack_logs and attack_logs[target_war_id]["attacks"]
         
-        # Extract war details from the data
-        war_id = str(war_data.get("id"))
-        start_time = datetime.fromtimestamp(war_data.get("start", 0)).strftime('%b %d, %Y')
-        end_time = datetime.fromtimestamp(war_data.get("end", 0)).strftime('%b %d, %Y')
-        
-        # Find our faction
-        our_faction = None
-        opponent_faction = None
-        
-        for faction in war_data.get("factions", []):
-            if int(faction.get("id", 0)) == FACTION_ID:
-                our_faction = faction
-            else:
-                opponent_faction = faction
-        
-        if not our_faction or not opponent_faction:
-            await interaction.followup.send("❌ Error processing war data: Could not identify factions.", ephemeral=True)
+        # If we have API data, use it; otherwise fall back to local data
+        if api_fetch_success and api_attacks:
+            await interaction.followup.send(f"Found {len(api_attacks)} attacks from Torn API!", ephemeral=True)
+            war_attacks = api_attacks
+            
+            # Always merge with local data to get complete coverage
+            # API might miss some attacks, or manual entries might have different scoring
+            if has_local_data:
+                manual_attacks = attack_logs[target_war_id]["attacks"]
+                
+                # To avoid duplicates, we can use a dictionary with attack IDs as keys
+                # But for simplicity, we'll just append for now
+                war_attacks.extend(manual_attacks)
+                await interaction.followup.send(f"Merged with {len(manual_attacks)} manually recorded attacks.", ephemeral=True)
+                
+        elif has_local_data:
+            war_attacks = attack_logs[target_war_id]["attacks"]
+            await interaction.followup.send(f"Using {len(war_attacks)} manually recorded attacks from database.", ephemeral=True)
+        else:
+            await interaction.followup.send(f"No attack data found for war #{target_war_id}.\n\nUse `/war record` to log attacks manually, or try another war ID.", ephemeral=True)
             return
         
-        our_faction_name = our_faction.get("name", "Our Faction")
-        opponent_name = opponent_faction.get("name", "Opponent")
-        opponent_id = opponent_faction.get("id", 0)
+        if not war_attacks:
+            await interaction.followup.send(f"No attacks recorded for war #{target_war_id}.", ephemeral=True)
+            return
         
-        # Determine who won
-        winner_id = war_data.get("winner", 0)
-        we_won = int(winner_id) == FACTION_ID
+        # Group attacks by attacker
+        attacker_stats = {}
+        for attack in war_attacks:
+            attacker_id = str(attack["attacker_id"])
+            if attacker_id not in attacker_stats:
+                attacker_stats[attacker_id] = {
+                    "total_points": 0,
+                    "total_attacks": 0
+                }
+            
+            attacker_stats[attacker_id]["total_points"] += attack["points"]
+            attacker_stats[attacker_id]["total_attacks"] += 1
         
-        # Handle pagination
-        items_per_page = 10
-        total_items = len(sorted_contributors)
-        total_pages = max(1, (total_items + items_per_page - 1) // items_per_page)
+        # Sort by total points (score) - same as Torn's own leaderboard
+        ranked_attackers = sorted(
+            attacker_stats.items(),
+            key=lambda x: x[1]["total_points"],
+            reverse=True
+        )
         
-        # Validate the requested page
-        page = max(1, min(page, total_pages))
-        
-        # Slice the data for the current page
-        start_index = (page - 1) * items_per_page
-        end_index = min(start_index + items_per_page, total_items)
-        page_data = sorted_contributors[start_index:end_index]
-        
-        # Create the embed with war information
-        if we_won:
-            title = f"🏆 WAR VICTORY: {our_faction_name} vs {opponent_name}"
-            color = 0x1abc9c  # Green for victory
+        # Create the embed
+        if target_war_id == current_war_id:
+            title = "Current War Leaderboard"
         else:
-            title = f"⚔️ WAR DEFEAT: {our_faction_name} vs {opponent_name}"
-            color = 0xe74c3c  # Red for defeat
+            title = f"War #{target_war_id} Leaderboard"
         
         embed = discord.Embed(
             title=title,
-            color=color,
-            description=f"**Official Member Contributions**\nWar ID: {war_id} | {start_time} to {end_time}\nPage {page} of {total_pages}"
+            description="Top contributors by points:",
+            color=0x1abc9c
         )
         
-        # Add member scores to the embed
-        for i, member in enumerate(page_data, start=start_index + 1):
-            member_name = member["name"]
-            member_level = member["level"]
-            member_attacks = member["attacks"]
-            member_score = member["points"]
-            
-            embed.add_field(
-                name=f"{i}. {member_name} [Lvl {member_level}]",
-                value=f"**Score:** {member_score:,.2f}\n**Attacks:** {member_attacks}",
-                inline=True
-            )
-            
-            # Add a spacer after every 2 members for better readability
-            if i % 2 == 0 and i < end_index:
-                embed.add_field(name="\u200b", value="\u200b", inline=True)
+        # Create a table-like display similar to the Torn game UI with pagination
+        # Calculate pagination
+        ENTRIES_PER_PAGE = 15  # Show 15 entries per page
+        total_entries = len(ranked_attackers)
+        total_pages = max(1, (total_entries + ENTRIES_PER_PAGE - 1) // ENTRIES_PER_PAGE)  # Ceiling division
         
-        # Add totals
-        total_members = len(sorted_contributors)
-        total_attacks = sum(member["attacks"] for member in sorted_contributors)
-        total_score = sum(member["points"] for member in sorted_contributors)
+        # Validate page number
+        if page < 1:
+            page = 1
+        elif page > total_pages:
+            page = total_pages
+            
+        # Calculate start and end indices for this page
+        start_idx = (page - 1) * ENTRIES_PER_PAGE
+        end_idx = min(start_idx + ENTRIES_PER_PAGE, total_entries)
         
+        # Get the subset of attackers for this page
+        page_attackers = ranked_attackers[start_idx:end_idx]
+        
+        # Header for the table
+        leaderboard_text = "```\n"
+        leaderboard_text += "Rank  Member                 Attacks    Score\n"
+        leaderboard_text += "─────────────────────────────────────────────\n"
+        
+        # Add all contributors for this page
+        for i, (attacker_id, stats) in enumerate(page_attackers):
+            # Calculate the global rank
+            rank = start_idx + i + 1
+                
+            # Try to get member name
+            member = interaction.guild.get_member(int(attacker_id))
+            name = member.display_name if member else f"User {attacker_id}"
+            
+            # Ensure name isn't too long (max 20 chars)
+            if len(name) > 20:
+                name = name[:17] + "..."
+                
+            # Format the score with decimal precision
+            score = f"{stats['total_points']:.1f}" if isinstance(stats['total_points'], float) else f"{stats['total_points']}"
+            
+            # Left-align name, right-align numbers
+            leaderboard_text += f"{rank:<4} {name:<20} {stats['total_attacks']:>7}  {score:>9}\n"
+            
+        # Add pagination info at the bottom
+        leaderboard_text += "─────────────────────────────────────────────\n"
+        leaderboard_text += f"Page {page}/{total_pages} • {total_entries} total contributors\n"
+        leaderboard_text += "```"
+        
+        # Add the formatted leaderboard as a field
         embed.add_field(
-            name="📊 Summary",
-            value=f"**Total Members:** {total_members}\n**Total Attacks:** {total_attacks}\n**Total Score:** {total_score:,.2f}",
+            name=f"War Contribution Leaderboard",
+            value=leaderboard_text,
             inline=False
         )
         
-        # Set the footer
-        embed.set_footer(text="Official Torn API data from completed war")
+        # Add total war stats in a format that complements the leaderboard
+        total_attackers = len(attacker_stats)
+        total_attacks = sum(stats["total_attacks"] for stats in attacker_stats.values())
+        total_points = sum(stats["total_points"] for stats in attacker_stats.values())
         
-        # Create the pagination view
+        if total_attacks > 0:
+            overall_efficiency = total_points / total_attacks
+        else:
+            overall_efficiency = 0
+            
+        # Format the war stats in a boxed summary
+        stats_text = "```\n"
+        stats_text += "War Summary\n"
+        stats_text += "────────────────────────────────\n"
+        stats_text += f"Contributors:      {total_attackers}\n"
+        stats_text += f"Total Attacks:     {total_attacks}\n"
+        stats_text += f"Total Score:       {total_points:.1f}\n"
+        stats_text += f"Avg Score/Attack:  {overall_efficiency:.2f}\n"
+        stats_text += "```"
+        
+        embed.add_field(
+            name="War Summary",
+            value=stats_text,
+            inline=False
+        )
+        
+        # Set footer with data source info
+        if api_attacks:
+            embed.set_footer(text=f"Data from Torn API (real-time) | {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        else:
+            embed.set_footer(text=f"Data from manual records | Use /war record to log attacks")
+        
+        # Create a custom view with pagination buttons
         class LeaderboardView(discord.ui.View):
             def __init__(self, current_page, total_pages, war_id):
                 super().__init__(timeout=300)  # 5 minute timeout
                 self.current_page = current_page
                 self.total_pages = total_pages
                 self.war_id = war_id
-                self.message = None
                 
                 # Add link to Torn war page
                 self.add_item(
@@ -1755,205 +1579,77 @@ async def show_leaderboard(interaction: discord.Interaction, war_id: str = None,
                 # Only add pagination buttons if there are multiple pages
                 if total_pages > 1:
                     # First page button
-                    first_page_button = discord.ui.Button(
+                    self.add_item(discord.ui.Button(
                         label="<<",
                         custom_id="first_page",
                         style=discord.ButtonStyle.primary,
-                        disabled=(current_page == 1)
-                    )
-                    first_page_button.callback = self.first_page_callback
-                    self.add_item(first_page_button)
+                        disabled=current_page == 1
+                    ))
                     
                     # Previous page button
-                    prev_page_button = discord.ui.Button(
+                    self.add_item(discord.ui.Button(
                         label="<",
                         custom_id="prev_page",
                         style=discord.ButtonStyle.primary,
-                        disabled=(current_page == 1)
-                    )
-                    prev_page_button.callback = self.prev_page_callback
-                    self.add_item(prev_page_button)
+                        disabled=current_page == 1
+                    ))
                     
                     # Next page button
-                    next_page_button = discord.ui.Button(
+                    self.add_item(discord.ui.Button(
                         label=">",
                         custom_id="next_page",
                         style=discord.ButtonStyle.primary,
-                        disabled=(current_page == total_pages)
-                    )
-                    next_page_button.callback = self.next_page_callback
-                    self.add_item(next_page_button)
+                        disabled=current_page == total_pages
+                    ))
                     
                     # Last page button
-                    last_page_button = discord.ui.Button(
+                    self.add_item(discord.ui.Button(
                         label=">>",
                         custom_id="last_page",
                         style=discord.ButtonStyle.primary,
-                        disabled=(current_page == total_pages)
-                    )
-                    last_page_button.callback = self.last_page_callback
-                    self.add_item(last_page_button)
+                        disabled=current_page == total_pages
+                    ))
                 
             async def on_timeout(self):
-                if self.message:
-                    try:
-                        await self.message.edit(view=None)
-                    except:
-                        pass
-            
-            async def first_page_callback(self, interaction):
-                await interaction.response.defer()
-                await show_leaderboard(interaction, self.war_id, 1)
-            
-            async def prev_page_callback(self, interaction):
-                await interaction.response.defer()
-                new_page = max(1, self.current_page - 1)
-                await show_leaderboard(interaction, self.war_id, new_page)
-            
-            async def next_page_callback(self, interaction):
-                await interaction.response.defer()
-                new_page = min(self.total_pages, self.current_page + 1)
-                await show_leaderboard(interaction, self.war_id, new_page)
-            
-            async def last_page_callback(self, interaction):
-                await interaction.response.defer()
-                await show_leaderboard(interaction, self.war_id, self.total_pages)
+                # Disable all buttons when the view times out
+                for item in self.children:
+                    item.disabled = True
+                
+            async def interaction_check(self, button_interaction):
+                # Make sure only the original user can click the buttons
+                return button_interaction.user.id == interaction.user.id
         
-        # Create the view
+        # Initialize the view
         view = LeaderboardView(page, total_pages, war_id)
         
-        # Send the embed with the view
-        response = await interaction.followup.send(embed=embed, view=view, ephemeral=False)
-        view.message = response
-        
-        # Debug information
-        print(f"Leaderboard displayed for war ID: {target_war_id}")
-        print(f"Is current war: {is_current_war}")
-    except Exception as e:
-        print(f"Error displaying leaderboard: {str(e)}")
-        await interaction.followup.send(f"❌ Error displaying leaderboard: {str(e)[:100]}...", ephemeral=True)
-
-async def show_war_result(interaction: discord.Interaction, war_id: str = None):
-    """Show detailed war result including rank changes and rewards"""
-    try:
-        await interaction.followup.send("Fetching war result data...", ephemeral=True)
-        
-        # Get the war data from the rankedwarreport endpoint
-        _, _, war_data = await fetch_war_leaderboard_data(war_id)
-        
-        if not war_data:
-            if war_id:
-                await interaction.followup.send(f"❌ Could not find completed war with ID {war_id}. If this war is still ongoing, please wait for it to finish.", ephemeral=True)
-            else:
-                await interaction.followup.send("❌ Could not find any completed wars. Try again later or specify a specific war ID.", ephemeral=True)
-            return
+        # Add button callbacks
+        @view.children[1].callback  # First page
+        async def first_page_callback(button_interaction):
+            await button_interaction.response.defer()
+            await show_leaderboard(interaction, war_id, 1)
             
-        # Process the war data into readable format
-        start_time = datetime.fromtimestamp(war_data.get("start", 0)).strftime('%b %d, %Y %H:%M')
-        end_time = datetime.fromtimestamp(war_data.get("end", 0)).strftime('%b %d, %Y %H:%M')
-        war_id = war_data.get("id", "Unknown")
-        winner_id = war_data.get("winner", 0)
-        
-        # Get faction data
-        our_faction_data = None
-        opponent_faction_data = None
-        
-        for faction in war_data.get("factions", []):
-            if int(faction.get("id", 0)) == FACTION_ID:
-                our_faction_data = faction
-            else:
-                opponent_faction_data = faction
+        if total_pages > 1:
+            @view.children[2].callback  # Previous page
+            async def prev_page_callback(button_interaction):
+                await button_interaction.response.defer()
+                new_page = max(1, page - 1)
+                await show_leaderboard(interaction, war_id, new_page)
                 
-        if not our_faction_data or not opponent_faction_data:
-            await interaction.followup.send("❌ Error processing war data: Could not identify factions.", ephemeral=True)
-            return
-            
-        # Get faction details
-        our_faction_name = our_faction_data.get("name", "Our Faction")
-        our_score = our_faction_data.get("score", 0)
-        our_attacks = our_faction_data.get("attacks", 0)
+            @view.children[3].callback  # Next page
+            async def next_page_callback(button_interaction):
+                await button_interaction.response.defer()
+                new_page = min(total_pages, page + 1)
+                await show_leaderboard(interaction, war_id, new_page)
+                
+            @view.children[4].callback  # Last page
+            async def last_page_callback(button_interaction):
+                await button_interaction.response.defer()
+                await show_leaderboard(interaction, war_id, total_pages)
         
-        opponent_faction_name = opponent_faction_data.get("name", "Opponent Faction")
-        opponent_id = opponent_faction_data.get("id", 0)
-        opponent_score = opponent_faction_data.get("score", 0)
-        opponent_attacks = opponent_faction_data.get("attacks", 0)
-        
-        # Determine who won
-        we_won = int(winner_id) == FACTION_ID
-        
-        # Format the ranks if available
-        rank_change = ""
-        if "rank" in our_faction_data:
-            before_rank = our_faction_data["rank"].get("before", "Unknown")
-            after_rank = our_faction_data["rank"].get("after", "Unknown")
-            
-            if before_rank != after_rank:
-                rank_change = f"\n**Rank Change:** {before_rank} → {after_rank}"
-            else:
-                rank_change = f"\n**Rank:** {after_rank} (unchanged)"
-        
-        # Format the rewards if available
-        rewards_text = ""
-        if "rewards" in our_faction_data:
-            rewards = our_faction_data["rewards"]
-            respect = rewards.get("respect", 0)
-            points = rewards.get("points", 0)
-            
-            rewards_text = f"\n**Rewards:**\n• {respect:,} respect\n• {points:,} points"
-            
-            # Add items if any
-            if "items" in rewards and rewards["items"]:
-                rewards_text += "\n• Items:"
-                for item in rewards["items"]:
-                    item_name = item.get("name", "Unknown Item")
-                    item_quantity = item.get("quantity", 1)
-                    rewards_text += f"\n  - {item_quantity}x {item_name}"
-        
-        # Create the embed
-        if we_won:
-            title = f"💯 WAR VICTORY: {our_faction_name} vs {opponent_faction_name}"
-            color = 0x1abc9c  # Green for victory
-        else:
-            title = f"⚔️ WAR DEFEAT: {our_faction_name} vs {opponent_faction_name}"
-            color = 0xe74c3c  # Red for defeat
-            
-        embed = discord.Embed(
-            title=title,
-            color=color,
-            description=f"**War ID:** {war_id}\n**Duration:** {start_time} to {end_time}{rank_change}{rewards_text}"
-        )
-        
-        # Add score fields
-        embed.add_field(
-            name=f"{our_faction_name}",
-            value=f"**Score:** {our_score:,}\n**Attacks:** {our_attacks:,}",
-            inline=True
-        )
-        
-        embed.add_field(
-            name=f"{opponent_faction_name}",
-            value=f"**Score:** {opponent_score:,}\n**Attacks:** {opponent_attacks:,}",
-            inline=True
-        )
-        
-        # Add helpful commands field
-        embed.add_field(
-            name="View More Details",
-            value=f"Use `/war leaderboard {war_id}` to see member contributions",
-            inline=False
-        )
-        
-        # Set footer
-        embed.set_footer(text=f"War ended {end_time}")
-        
-        # Send the embed
-        response_msg = await interaction.followup.send(embed=embed, ephemeral=False)
-        asyncio.create_task(scheduled_message_delete(response_msg))
-        
+        response_msg = await interaction.followup.send(embed=embed, view=view)
+        # Leaderboard messages don't auto-delete anymore (important to keep visible)
     except Exception as e:
-        error_msg = str(e)
-        print(f"Error showing war result: {error_msg}")
-        await interaction.followup.send(f"❌ Error showing war result: {error_msg[:100]}...", ephemeral=True)
+        await interaction.followup.send(f"Error showing leaderboard: {str(e)}")
 
 async def show_my_stats(interaction: discord.Interaction, war_id: str = None):
     """View your contribution stats with data from API when possible"""
@@ -2568,26 +2264,13 @@ async def check_war_status():
         old_our_score = current_war_data.get("last_our_score", 0)
         old_opponent_score = current_war_data.get("last_opponent_score", 0)
         
-        # Get current scores - handle different data formats
+        # Get current scores
         factions = war_data.get("factions", {})
-        our_faction = None
-        opponent_faction = None
+        our_faction = factions.get(str(FACTION_ID), {})
+        opponent_faction = factions.get(str(opponent_id), {})
         
-        # Handle the possibility of factions being a list instead of a dict
-        if isinstance(factions, list):
-            # List format
-            for faction in factions:
-                if int(faction.get("id", 0)) == FACTION_ID:
-                    our_faction = faction
-                elif int(faction.get("id", 0)) == int(opponent_id):
-                    opponent_faction = faction
-        elif isinstance(factions, dict):
-            # Dictionary format
-            our_faction = factions.get(str(FACTION_ID), {})
-            opponent_faction = factions.get(str(opponent_id), {})
-        
-        our_score = our_faction.get("score", 0) if our_faction else 0
-        opponent_score = opponent_faction.get("score", 0) if opponent_faction else 0
+        our_score = our_faction.get("score", 0)
+        opponent_score = opponent_faction.get("score", 0)
         
         # Save current scores for next check
         current_war_data["last_our_score"] = our_score
@@ -2601,17 +2284,7 @@ async def check_war_status():
         
         # Check if war is ending soon
         war_ending_soon = False
-        
-        # Handle different war data formats for getting start time
-        start_time = 0
-        if "start" in war_data:
-            # Direct key in the war_data
-            start_time = war_data.get("start", 0)
-        elif "war" in war_data and isinstance(war_data["war"], dict):
-            # Nested under "war" key
-            start_time = war_data["war"].get("start", 0)
-            
-        print(f"War start time: {start_time}")
+        start_time = war_data.get("war", {}).get("start", 0)
         if start_time > 0:
             # Wars typically last 5 days
             end_time = start_time + (5 * 24 * 60 * 60)

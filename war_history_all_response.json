@@ -1,0 +1,1650 @@
+{
+  "rankedwars": [
+    {
+      "id": 24600,
+      "start": 1745589600,
+      "end": 1745638882,
+      "target": 17900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 10174,
+          "name": "AQUA-Poseidon",
+          "score": 9395,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 27308,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 24126,
+      "start": 1744495200,
+      "end": 1744522084,
+      "target": 18000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 10739,
+          "name": "The Next Level - Forge",
+          "score": 856,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 18859,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 23662,
+      "start": 1743285600,
+      "end": 1743336026,
+      "target": 17300,
+      "winner": 16312,
+      "factions": [
+        {
+          "id": 16312,
+          "name": "39th Street Killers X",
+          "score": 29768,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 12468,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 23070,
+      "start": 1742065200,
+      "end": 1742129044,
+      "target": 17700,
+      "winner": 6731,
+      "factions": [
+        {
+          "id": 6731,
+          "name": "The Next Level",
+          "score": 25891,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 8188,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 22641,
+      "start": 1740780000,
+      "end": 1740832801,
+      "target": 18000,
+      "winner": 16628,
+      "factions": [
+        {
+          "id": 16628,
+          "name": "Chain Reaction",
+          "score": 21952,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 3943,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 22096,
+      "start": 1739570400,
+      "end": 1739620730,
+      "target": 16600,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 20747,
+          "name": "Damage Inc",
+          "score": 4431,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 21047,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 21636,
+      "start": 1738443600,
+      "end": 1738485686,
+      "target": 17700,
+      "winner": 8336,
+      "factions": [
+        {
+          "id": 8336,
+          "name": "Monarch HQ",
+          "score": 23436,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 5724,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 21118,
+      "start": 1737118800,
+      "end": 1737134357,
+      "target": 17900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 16335,
+          "name": "SMTH - November Chopin",
+          "score": 0,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 17902,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 20163,
+      "start": 1734105600,
+      "end": 1734355906,
+      "target": 9666,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 21665,
+          "name": "Monarch Army of Light",
+          "score": 55131,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 66211,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 19719,
+      "start": 1733000400,
+      "end": 1733023665,
+      "target": 18000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 11581,
+          "name": "Natural Selection III",
+          "score": 4930,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 22935,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 19257,
+      "start": 1731772800,
+      "end": 1731898993,
+      "target": 15840,
+      "winner": 89,
+      "factions": [
+        {
+          "id": 89,
+          "name": "Catalysis",
+          "score": 38962,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 23122,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 18481,
+      "start": 1728651600,
+      "end": 1728680564,
+      "target": 18000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 9674,
+          "name": "Smells like Sex",
+          "score": 1645,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 19646,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 18213,
+      "start": 1728162000,
+      "end": 1728224120,
+      "target": 17900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 10610,
+          "name": "NPO - Strength",
+          "score": 7605,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 25518,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 17183,
+      "start": 1724936400,
+      "end": 1725031643,
+      "target": 17169,
+      "winner": 230,
+      "factions": [
+        {
+          "id": 230,
+          "name": "PT-Family",
+          "score": 34091,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 16920,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 16754,
+      "start": 1723924800,
+      "end": 1724050680,
+      "target": 15664,
+      "winner": 231,
+      "factions": [
+        {
+          "id": 231,
+          "name": "Destructive Anomaly",
+          "score": 42604,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 26925,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 16331,
+      "start": 1722708000,
+      "end": 1722721917,
+      "target": 18000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 21368,
+          "name": "Escensio Incursus",
+          "score": 101,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 18117,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 15960,
+      "start": 1721498400,
+      "end": 1721551422,
+      "target": 17600,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 7709,
+          "name": "Vulpes Vulpes",
+          "score": 9301,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 26914,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 15344,
+      "start": 1719493200,
+      "end": 1719547864,
+      "target": 17900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 19,
+          "name": "39th Street Killers",
+          "score": 11341,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 29244,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 14931,
+      "start": 1718456400,
+      "end": 1718520998,
+      "target": 18000,
+      "winner": 8336,
+      "factions": [
+        {
+          "id": 8336,
+          "name": "Monarch HQ",
+          "score": 23565,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 5564,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 14530,
+      "start": 1717153200,
+      "end": 1717199029,
+      "target": 18000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 9524,
+          "name": "|HT|",
+          "score": 10581,
+          "chain": 2321
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 28591,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 13615,
+      "start": 1714140000,
+      "end": 1714217359,
+      "target": 17700,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 21665,
+          "name": "Monarch Army of Light",
+          "score": 16344,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 34060,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 13268,
+      "start": 1713045600,
+      "end": 1713183809,
+      "target": 14790,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 12094,
+          "name": "Nuclear Fusion",
+          "score": 22223,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 37027,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12836,
+      "start": 1711656000,
+      "end": 1711725406,
+      "target": 18000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 22887,
+          "name": "Resilience",
+          "score": 4065,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 22066,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12462,
+      "start": 1710626400,
+      "end": 1710704614,
+      "target": 18000,
+      "winner": 89,
+      "factions": [
+        {
+          "id": 89,
+          "name": "Catalysis",
+          "score": 29287,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 11287,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 12093,
+      "start": 1709236800,
+      "end": 1709250635,
+      "target": 18000,
+      "winner": 230,
+      "factions": [
+        {
+          "id": 230,
+          "name": "PT-Family",
+          "score": 19876,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 1868,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 11705,
+      "start": 1708027200,
+      "end": 1708054429,
+      "target": 17900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 7282,
+          "name": "Luscious Dreams",
+          "score": 2937,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 20851,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 11296,
+      "start": 1706990400,
+      "end": 1707162289,
+      "target": 13604,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 27312,
+          "name": "SA Succession",
+          "score": 18546,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 32151,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 10901,
+      "start": 1705698000,
+      "end": 1705721963,
+      "target": 17900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 27223,
+          "name": "Stompers",
+          "score": 4931,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 23185,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 10109,
+      "start": 1702764000,
+      "end": 1702794122,
+      "target": 17300,
+      "winner": 16628,
+      "factions": [
+        {
+          "id": 16628,
+          "name": "Chain Reaction",
+          "score": 17405,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 105,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 9729,
+      "start": 1701554400,
+      "end": 1701574131,
+      "target": 17600,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 22492,
+          "name": "Dystopia",
+          "score": 3076,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 20685,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 9391,
+      "start": 1700344800,
+      "end": 1700358001,
+      "target": 17300,
+      "winner": 6731,
+      "factions": [
+        {
+          "id": 6731,
+          "name": "The Next Level",
+          "score": 21508,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 4197,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 8439,
+      "start": 1696514400,
+      "end": 1696539995,
+      "target": 18000,
+      "winner": 18736,
+      "factions": [
+        {
+          "id": 18736,
+          "name": "Monarch Research",
+          "score": 22453,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 4450,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 8178,
+      "start": 1695481200,
+      "end": 1695484349,
+      "target": 13000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 16282,
+          "name": "Nuclear Winter",
+          "score": 0,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 13005,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 7802,
+      "start": 1693062000,
+      "end": 1693107804,
+      "target": 13800,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 8537,
+          "name": "NNGO",
+          "score": 3317,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 17124,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 7406,
+      "start": 1691852400,
+      "end": 1691914036,
+      "target": 13600,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 9689,
+          "name": "Deja",
+          "score": 3055,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 16657,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 7156,
+      "start": 1690473600,
+      "end": 1690819255,
+      "target": 3672,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 20514,
+          "name": "DropBears",
+          "score": 1414,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 5166,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 7049,
+      "start": 1689861600,
+      "end": 1690237615,
+      "target": 2546,
+      "winner": 22295,
+      "factions": [
+        {
+          "id": 22295,
+          "name": "Aquarius",
+          "score": 5565,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 3012,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 6458,
+      "start": 1686924000,
+      "end": 1686950630,
+      "target": 14500,
+      "winner": 11581,
+      "factions": [
+        {
+          "id": 11581,
+          "name": "Natural Selection III",
+          "score": 16081,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 1578,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 6106,
+      "start": 1685804400,
+      "end": 1685961023,
+      "target": 11600,
+      "winner": 12893,
+      "factions": [
+        {
+          "id": 12893,
+          "name": "Darkline",
+          "score": 26334,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 14728,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5740,
+      "start": 1683381600,
+      "end": 1683403685,
+      "target": 17600,
+      "winner": 18736,
+      "factions": [
+        {
+          "id": 18736,
+          "name": "Monarch Research",
+          "score": 20099,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 2492,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5638,
+      "start": 1682690400,
+      "end": 1682793035,
+      "target": 16815,
+      "winner": 9533,
+      "factions": [
+        {
+          "id": 9533,
+          "name": "Natural Selection",
+          "score": 20446,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 3623,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5449,
+      "start": 1682085600,
+      "end": 1682219364,
+      "target": 12900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 16335,
+          "name": "SMTH - November Chopin",
+          "score": 9274,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 22185,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 5183,
+      "start": 1680379200,
+      "end": 1680591729,
+      "target": 9536,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 8836,
+          "name": "Vinerri",
+          "score": 16051,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 25592,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4578,
+      "start": 1677333600,
+      "end": 1677363495,
+      "target": 14300,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 26437,
+          "name": "The Prowl",
+          "score": 2216,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 16520,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4463,
+      "start": 1676062800,
+      "end": 1676112194,
+      "target": 14400,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 27223,
+          "name": "Stompers",
+          "score": 7947,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 22351,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 4232,
+      "start": 1674734400,
+      "end": 1674792329,
+      "target": 14900,
+      "winner": 36134,
+      "factions": [
+        {
+          "id": 36134,
+          "name": "SMTH - Silver Hand",
+          "score": 21947,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 7046,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3971,
+      "start": 1673730000,
+      "end": 1673751241,
+      "target": 14900,
+      "winner": 9055,
+      "factions": [
+        {
+          "id": 9055,
+          "name": "Natural Selection IV",
+          "score": 20832,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 5484,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3661,
+      "start": 1671310800,
+      "end": 1671341676,
+      "target": 14900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 14760,
+          "name": "Dopeheads on Mopeds",
+          "score": 4252,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 19619,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3452,
+      "start": 1669903200,
+      "end": 1670013647,
+      "target": 13857,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 8085,
+          "name": "Nuclear Blast",
+          "score": 12598,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 26456,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3414,
+      "start": 1669471200,
+      "end": 1669490907,
+      "target": 14600,
+      "winner": 9041,
+      "factions": [
+        {
+          "id": 9041,
+          "name": "PT-Calculated",
+          "score": 16309,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 1708,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 3272,
+      "start": 1668693600,
+      "end": 1668873225,
+      "target": 11100,
+      "winner": 41419,
+      "factions": [
+        {
+          "id": 41419,
+          "name": "Riot",
+          "score": 27944,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 16842,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2908,
+      "start": 1665234000,
+      "end": 1665255010,
+      "target": 11900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 7282,
+          "name": "Luscious Dreams",
+          "score": 1329,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 13241,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2787,
+      "start": 1664568000,
+      "end": 1664608187,
+      "target": 11800,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 36660,
+          "name": "Premature Attackulation",
+          "score": 1397,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 13198,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2515,
+      "start": 1662044400,
+      "end": 1662075116,
+      "target": 12000,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 23952,
+          "name": "Midnight Plague",
+          "score": 7341,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 19344,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2450,
+      "start": 1661626800,
+      "end": 1661652542,
+      "target": 11600,
+      "winner": 6731,
+      "factions": [
+        {
+          "id": 6731,
+          "name": "The Next Level",
+          "score": 14179,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 2579,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2354,
+      "start": 1661022000,
+      "end": 1661041364,
+      "target": 11800,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 12249,
+          "name": "Aurora Surrealis",
+          "score": 1737,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 13545,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2259,
+      "start": 1660312800,
+      "end": 1660386404,
+      "target": 11500,
+      "winner": 16335,
+      "factions": [
+        {
+          "id": 16335,
+          "name": "SMTH - November Chopin",
+          "score": 28437,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 16026,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 2116,
+      "start": 1659211200,
+      "end": 1659314939,
+      "target": 10830,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 33241,
+          "name": "Nub Navy",
+          "score": 14589,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 25431,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1941,
+      "start": 1658001600,
+      "end": 1658121297,
+      "target": 10260,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 8510,
+          "name": "Ara Pacis",
+          "score": 15595,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 25857,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1832,
+      "start": 1656792000,
+      "end": 1656878054,
+      "target": 11300,
+      "winner": 9517,
+      "factions": [
+        {
+          "id": 9517,
+          "name": "OverWatch",
+          "score": 27745,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 16444,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1749,
+      "start": 1656187200,
+      "end": 1656223277,
+      "target": 11200,
+      "winner": 8468,
+      "factions": [
+        {
+          "id": 8468,
+          "name": "Bloodbath and Beyond",
+          "score": 17675,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 6461,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1657,
+      "start": 1655582400,
+      "end": 1655695594,
+      "target": 10580,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 41419,
+          "name": "Riot",
+          "score": 11928,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 22511,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1486,
+      "start": 1654372800,
+      "end": 1654395567,
+      "target": 11400,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 8954,
+          "name": "Nuclear Armageddon",
+          "score": 4648,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 16048,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1449,
+      "start": 1653768000,
+      "end": 1653881770,
+      "target": 10948,
+      "winner": 15222,
+      "factions": [
+        {
+          "id": 15222,
+          "name": "Mortiferi",
+          "score": 30972,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 20024,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1381,
+      "start": 1652976000,
+      "end": 1652998339,
+      "target": 11600,
+      "winner": 14760,
+      "factions": [
+        {
+          "id": 14760,
+          "name": "Dopeheads on Mopeds",
+          "score": 13472,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 1867,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1128,
+      "start": 1651154400,
+      "end": 1651200780,
+      "target": 11800,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 41768,
+          "name": "Aces Elite",
+          "score": 8662,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 20464,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 1098,
+      "start": 1650646800,
+      "end": 1650731321,
+      "target": 10200,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 25025,
+          "name": "DP Warriors",
+          "score": 11004,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 21208,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 979,
+      "start": 1649433600,
+      "end": 1649530875,
+      "target": 9696,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 40992,
+          "name": "Medic!!",
+          "score": 13056,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 22851,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 892,
+      "start": 1648569600,
+      "end": 1648588464,
+      "target": 10100,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 35140,
+          "name": "Vault 76",
+          "score": 1445,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 11550,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 812,
+      "start": 1647802800,
+      "end": 1647855952,
+      "target": 10200,
+      "winner": 16057,
+      "factions": [
+        {
+          "id": 16057,
+          "name": "Glory to Heroes",
+          "score": 15517,
+          "chain": 2
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 5311,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 649,
+      "start": 1645984800,
+      "end": 1646045996,
+      "target": 10400,
+      "winner": 8537,
+      "factions": [
+        {
+          "id": 8537,
+          "name": "NNGO",
+          "score": 18525,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 8120,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 571,
+      "start": 1645200000,
+      "end": 1645345972,
+      "target": 8466,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 8124,
+          "name": "NF Legacy",
+          "score": 11673,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 20140,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 511,
+      "start": 1644512400,
+      "end": 1644551940,
+      "target": 10200,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 5431,
+          "name": "[Redacted]",
+          "score": 2435,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 12639,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 350,
+      "start": 1642892400,
+      "end": 1642929350,
+      "target": 8900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 16040,
+          "name": "Winter is Coming",
+          "score": 8392,
+          "chain": 3691
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 17700,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 289,
+      "start": 1642201200,
+      "end": 1642242014,
+      "target": 8600,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 12645,
+          "name": "NPO - Endurance",
+          "score": 2947,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 11547,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 231,
+      "start": 1641571200,
+      "end": 1641627678,
+      "target": 8900,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 15644,
+          "name": "New Sith Order",
+          "score": 6998,
+          "chain": 1
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 15899,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 184,
+      "start": 1640959200,
+      "end": 1640977291,
+      "target": 7400,
+      "winner": 42125,
+      "factions": [
+        {
+          "id": 15226,
+          "name": "Whitenoise",
+          "score": 601,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 8014,
+          "chain": 0
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "start": 1639144800,
+      "end": 1639259545,
+      "target": 6716,
+      "winner": 10566,
+      "factions": [
+        {
+          "id": 10566,
+          "name": "The Rifle Company",
+          "score": 19688,
+          "chain": 0
+        },
+        {
+          "id": 42125,
+          "name": "ODB",
+          "score": 12947,
+          "chain": 0
+        }
+      ]
+    }
+  ],
+  "_metadata": {
+    "prev": null,
+    "next": null,
+    "links": {
+      "prev": null,
+      "next": null
+    }
+  }
+}
