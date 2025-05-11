@@ -11,7 +11,7 @@
           "id": 10174,
           "name": "AQUA-Poseidon",
           "score": 9395,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 42125,
@@ -53,7 +53,7 @@
           "id": 16312,
           "name": "39th Street Killers X",
           "score": 29768,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 42125,
@@ -95,7 +95,7 @@
           "id": 16628,
           "name": "Chain Reaction",
           "score": 21952,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -179,7 +179,7 @@
           "id": 21665,
           "name": "Monarch Army of Light",
           "score": 55131,
-          "chain": 3
+          "chain": 0
         },
         {
           "id": 42125,
@@ -200,7 +200,7 @@
           "id": 11581,
           "name": "Natural Selection III",
           "score": 4930,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -242,7 +242,7 @@
           "id": 9674,
           "name": "Smells like Sex",
           "score": 1645,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -284,7 +284,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 34091,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -326,7 +326,7 @@
           "id": 21368,
           "name": "Escensio Incursus",
           "score": 101,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 42125,
@@ -347,7 +347,7 @@
           "id": 7709,
           "name": "Vulpes Vulpes",
           "score": 9301,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -368,7 +368,7 @@
           "id": 19,
           "name": "39th Street Killers",
           "score": 11341,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -410,7 +410,7 @@
           "id": 9524,
           "name": "|HT|",
           "score": 10581,
-          "chain": 2369
+          "chain": 2389
         },
         {
           "id": 42125,
@@ -431,7 +431,7 @@
           "id": 21665,
           "name": "Monarch Army of Light",
           "score": 16344,
-          "chain": 3
+          "chain": 0
         },
         {
           "id": 42125,
@@ -452,7 +452,7 @@
           "id": 12094,
           "name": "Nuclear Fusion",
           "score": 22223,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -473,7 +473,7 @@
           "id": 22887,
           "name": "Resilience",
           "score": 4065,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -515,7 +515,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 19876,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -599,7 +599,7 @@
           "id": 16628,
           "name": "Chain Reaction",
           "score": 17405,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -662,7 +662,7 @@
           "id": 18736,
           "name": "Monarch Research",
           "score": 22453,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -788,7 +788,7 @@
           "id": 11581,
           "name": "Natural Selection III",
           "score": 16081,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -830,7 +830,7 @@
           "id": 18736,
           "name": "Monarch Research",
           "score": 20099,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -851,7 +851,7 @@
           "id": 9533,
           "name": "Natural Selection",
           "score": 20446,
-          "chain": 1
+          "chain": 15
         },
         {
           "id": 42125,
@@ -893,7 +893,7 @@
           "id": 8836,
           "name": "Vinerri",
           "score": 16051,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1040,7 +1040,7 @@
           "id": 9041,
           "name": "PT-Calculated",
           "score": 16309,
-          "chain": 3
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1208,7 +1208,7 @@
           "id": 33241,
           "name": "Nub Navy",
           "score": 14589,
-          "chain": 4
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1397,7 +1397,7 @@
           "id": 25025,
           "name": "DP Warriors",
           "score": 11004,
-          "chain": 3
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1418,7 +1418,7 @@
           "id": 40992,
           "name": "Medic!!",
           "score": 13056,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1544,7 +1544,7 @@
           "id": 16040,
           "name": "Winter is Coming",
           "score": 8392,
-          "chain": 3733
+          "chain": 3763
         },
         {
           "id": 42125,
@@ -1565,7 +1565,7 @@
           "id": 12645,
           "name": "NPO - Endurance",
           "score": 2947,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -1628,7 +1628,7 @@
           "id": 10566,
           "name": "The Rifle Company",
           "score": 19688,
-          "chain": 1
+          "chain": 3
         },
         {
           "id": 42125,

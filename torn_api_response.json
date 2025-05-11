@@ -101,7 +101,7 @@
           "id": 41777,
           "name": "The Swarm",
           "score": 4348,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -158,7 +158,7 @@
           "id": 15595,
           "name": "Lusty Lizards",
           "score": 3033,
-          "chain": 517
+          "chain": 519
         },
         {
           "id": 37537,
@@ -179,7 +179,7 @@
           "id": 12863,
           "name": "WTF Healers",
           "score": 4974,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 37537,
@@ -206,7 +206,7 @@
           "id": 40624,
           "name": "Toxic Reign",
           "score": 20240,
-          "chain": 6427
+          "chain": 6444
         }
       ]
     },
@@ -227,7 +227,7 @@
           "id": 46588,
           "name": "Grim Reapers",
           "score": 3818,
-          "chain": 644
+          "chain": 652
         }
       ]
     },
@@ -242,7 +242,7 @@
           "id": 8795,
           "name": "The Brotherhood of Battle",
           "score": 3281,
-          "chain": 125
+          "chain": 130
         },
         {
           "id": 37537,
@@ -311,7 +311,7 @@
           "id": 46708,
           "name": "The Revenant",
           "score": 23730,
-          "chain": 2
+          "chain": 0
         }
       ]
     },
@@ -332,7 +332,7 @@
           "id": 48002,
           "name": "Corrupted Phoenix",
           "score": 7799,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -353,7 +353,7 @@
           "id": 37786,
           "name": "Momentum",
           "score": 14321,
-          "chain": 0
+          "chain": 11
         }
       ]
     },
@@ -410,7 +410,7 @@
           "id": 9356,
           "name": "SMTH - Party Animals",
           "score": 6157,
-          "chain": 532
+          "chain": 535
         },
         {
           "id": 37537,
@@ -788,7 +788,7 @@
           "id": 14581,
           "name": "Happy Vegemites",
           "score": 1505,
-          "chain": 112
+          "chain": 123
         },
         {
           "id": 37537,
@@ -809,7 +809,7 @@
           "id": 10566,
           "name": "The Rifle Company",
           "score": 55,
-          "chain": 0
+          "chain": 3
         },
         {
           "id": 37537,
@@ -914,7 +914,7 @@
           "id": 37450,
           "name": "Wargasm-DNA",
           "score": 4923,
-          "chain": 0
+          "chain": 3
         },
         {
           "id": 37537,
@@ -1004,7 +1004,7 @@
           "id": 48848,
           "name": "Torn 4 Life",
           "score": 4841,
-          "chain": 16
+          "chain": 18
         }
       ]
     },
@@ -1319,7 +1319,7 @@
           "id": 48246,
           "name": "Knockout - Care Corner",
           "score": 502,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -1481,7 +1481,7 @@
           "id": 7746,
           "name": "C.R.H",
           "score": 9832,
-          "chain": 123
+          "chain": 128
         },
         {
           "id": 37537,
@@ -1529,7 +1529,7 @@
           "id": 43752,
           "name": "Tweakers in Sneakers",
           "score": 6731,
-          "chain": 162
+          "chain": 163
         }
       ]
     },
@@ -1550,7 +1550,7 @@
           "id": 40518,
           "name": "Monarch Optimus",
           "score": 3668,
-          "chain": 357
+          "chain": 372
         }
       ]
     }
