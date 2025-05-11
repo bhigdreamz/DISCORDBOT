@@ -307,7 +307,7 @@ async def get_opponent_faction():
     global current_war_data
     
     # Use v2 API for better data
-    url = f"https://api.torn.com/v2/faction/37537/rankedwars?key={TORN_API_KEY}"
+    url = f"https://api.torn.com/v2/faction/{FACTION_ID}/rankedwars?key={TORN_API_KEY}"
     data = await get_json(url)
     
     # Debug: Save the raw response to a file for inspection
