@@ -32,7 +32,7 @@
           "id": 10739,
           "name": "The Next Level - Forge",
           "score": 856,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -95,7 +95,7 @@
           "id": 16628,
           "name": "Chain Reaction",
           "score": 21952,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -200,7 +200,7 @@
           "id": 11581,
           "name": "Natural Selection III",
           "score": 4930,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -221,7 +221,7 @@
           "id": 89,
           "name": "Catalysis",
           "score": 38962,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -242,7 +242,7 @@
           "id": 9674,
           "name": "Smells like Sex",
           "score": 1645,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -284,7 +284,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 34091,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 42125,
@@ -347,7 +347,7 @@
           "id": 7709,
           "name": "Vulpes Vulpes",
           "score": 9301,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -410,7 +410,7 @@
           "id": 9524,
           "name": "|HT|",
           "score": 10581,
-          "chain": 2321
+          "chain": 2345
         },
         {
           "id": 42125,
@@ -494,7 +494,7 @@
           "id": 89,
           "name": "Catalysis",
           "score": 29287,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -515,7 +515,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 19876,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 42125,
@@ -578,7 +578,7 @@
           "id": 27223,
           "name": "Stompers",
           "score": 4931,
-          "chain": 0
+          "chain": 3
         },
         {
           "id": 42125,
@@ -599,7 +599,7 @@
           "id": 16628,
           "name": "Chain Reaction",
           "score": 17405,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -662,7 +662,7 @@
           "id": 18736,
           "name": "Monarch Research",
           "score": 22453,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -788,7 +788,7 @@
           "id": 11581,
           "name": "Natural Selection III",
           "score": 16081,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -809,7 +809,7 @@
           "id": 12893,
           "name": "Darkline",
           "score": 26334,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -830,7 +830,7 @@
           "id": 18736,
           "name": "Monarch Research",
           "score": 20099,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -935,7 +935,7 @@
           "id": 27223,
           "name": "Stompers",
           "score": 7947,
-          "chain": 0
+          "chain": 3
         },
         {
           "id": 42125,
@@ -998,7 +998,7 @@
           "id": 14760,
           "name": "Dopeheads on Mopeds",
           "score": 4252,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1103,7 +1103,7 @@
           "id": 36660,
           "name": "Premature Attackulation",
           "score": 1397,
-          "chain": 1
+          "chain": 5
         },
         {
           "id": 42125,
@@ -1271,7 +1271,7 @@
           "id": 8468,
           "name": "Bloodbath and Beyond",
           "score": 17675,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 42125,
@@ -1334,7 +1334,7 @@
           "id": 15222,
           "name": "Mortiferi",
           "score": 30972,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1355,7 +1355,7 @@
           "id": 14760,
           "name": "Dopeheads on Mopeds",
           "score": 13472,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1397,7 +1397,7 @@
           "id": 25025,
           "name": "DP Warriors",
           "score": 11004,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1460,7 +1460,7 @@
           "id": 16057,
           "name": "Glory to Heroes",
           "score": 15517,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1523,7 +1523,7 @@
           "id": 5431,
           "name": "[Redacted]",
           "score": 2435,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -1544,7 +1544,7 @@
           "id": 16040,
           "name": "Winter is Coming",
           "score": 8392,
-          "chain": 3691
+          "chain": 3722
         },
         {
           "id": 42125,
@@ -1586,7 +1586,7 @@
           "id": 15644,
           "name": "New Sith Order",
           "score": 6998,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 42125,
@@ -1607,7 +1607,7 @@
           "id": 15226,
           "name": "Whitenoise",
           "score": 601,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 42125,
@@ -1628,7 +1628,7 @@
           "id": 10566,
           "name": "The Rifle Company",
           "score": 19688,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 42125,
