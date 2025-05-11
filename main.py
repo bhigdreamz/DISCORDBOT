@@ -2228,7 +2228,18 @@ async def delete_attack_record(interaction: discord.Interaction, attack_id: int,
                     attacker = interaction.guild.get_member(int(attacker_id))
                     attacker_name = attacker.display_name if attacker else f"User {attacker_id}"
 
-                    "
+                    # Get defender name
+                    try:
+                        user_data = await get_user_info(defender_id)
+                        defender_name = user_data.get("name", f"User {defender_id}")
+                    except:
+                        defender_name = f"User {defender_id}"
+
+                    await interaction.followup.send(
+                        f"✅ Deleted attack by {attacker_name} against {defender_name} "
+                        f"({points} points) from war #{target_war_id}.",
+                        ephemeral=True
+                    )
         for war_id, war_data in wars.items():
             if "war" in war_data and war_data["war"].get("end", 1) == 0:
                 active_war_info += f"War ID: {war_id}\n"
