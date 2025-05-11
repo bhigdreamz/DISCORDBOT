@@ -158,7 +158,7 @@
           "id": 15595,
           "name": "Lusty Lizards",
           "score": 3033,
-          "chain": 671
+          "chain": 153
         },
         {
           "id": 37537,
@@ -206,7 +206,7 @@
           "id": 40624,
           "name": "Toxic Reign",
           "score": 20240,
-          "chain": 6686
+          "chain": 0
         }
       ]
     },
@@ -227,7 +227,7 @@
           "id": 46588,
           "name": "Grim Reapers",
           "score": 3818,
-          "chain": 867
+          "chain": 0
         }
       ]
     },
@@ -242,7 +242,7 @@
           "id": 8795,
           "name": "The Brotherhood of Battle",
           "score": 3281,
-          "chain": 7
+          "chain": 0
         },
         {
           "id": 37537,
@@ -284,7 +284,7 @@
           "id": 35840,
           "name": "Baby Champers",
           "score": 23546,
-          "chain": 7
+          "chain": 1
         },
         {
           "id": 37537,
@@ -311,7 +311,7 @@
           "id": 46708,
           "name": "The Revenant",
           "score": 23730,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -410,7 +410,7 @@
           "id": 9356,
           "name": "SMTH - Party Animals",
           "score": 6157,
-          "chain": 723
+          "chain": 0
         },
         {
           "id": 37537,
@@ -494,7 +494,7 @@
           "id": 8076,
           "name": "Order Through Chaos",
           "score": 4026,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -536,7 +536,7 @@
           "id": 10610,
           "name": "NPO - Strength",
           "score": 19925,
-          "chain": 104
+          "chain": 0
         },
         {
           "id": 37537,
@@ -641,7 +641,7 @@
           "id": 16312,
           "name": "39th Street Killers X",
           "score": 22891,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -683,7 +683,7 @@
           "id": 11747,
           "name": "Natural Selection II",
           "score": 0,
-          "chain": 0
+          "chain": 14
         },
         {
           "id": 37537,
@@ -767,7 +767,7 @@
           "id": 8076,
           "name": "Order Through Chaos",
           "score": 2010,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -788,7 +788,7 @@
           "id": 14581,
           "name": "Happy Vegemites",
           "score": 1505,
-          "chain": 470
+          "chain": 0
         },
         {
           "id": 37537,
@@ -809,7 +809,7 @@
           "id": 10566,
           "name": "The Rifle Company",
           "score": 55,
-          "chain": 3
+          "chain": 0
         },
         {
           "id": 37537,
@@ -830,7 +830,7 @@
           "id": 21040,
           "name": "Monarch Vanguard",
           "score": 0,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 37537,
@@ -1004,7 +1004,7 @@
           "id": 48848,
           "name": "Torn 4 Life",
           "score": 4841,
-          "chain": 149
+          "chain": 833
         }
       ]
     },
@@ -1019,7 +1019,7 @@
           "id": 10850,
           "name": "JUX Lite",
           "score": 5327,
-          "chain": 2
+          "chain": 0
         },
         {
           "id": 37537,
@@ -1109,7 +1109,7 @@
           "id": 49147,
           "name": "Gladiators",
           "score": 1050,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -1319,7 +1319,7 @@
           "id": 48246,
           "name": "Knockout - Care Corner",
           "score": 502,
-          "chain": 1
+          "chain": 4
         }
       ]
     },
@@ -1382,7 +1382,7 @@
           "id": 48703,
           "name": "Prophets",
           "score": 3635,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -1481,7 +1481,7 @@
           "id": 7746,
           "name": "C.R.H",
           "score": 9832,
-          "chain": 214
+          "chain": 0
         },
         {
           "id": 37537,
@@ -1550,7 +1550,7 @@
           "id": 40518,
           "name": "Monarch Optimus",
           "score": 3668,
-          "chain": 532
+          "chain": 5
         }
       ]
     }

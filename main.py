@@ -10,8 +10,7 @@ from datetime import datetime, timedelta
 from discord.ext import tasks, commands
 from dotenv import load_dotenv
 from discord.ui import View, Button
-from flask import Flask
-from threading import Thread
+from keep_alive import keep_alive
 
 # ==========================================================
 # CONFIG AND SETUP
@@ -265,21 +264,7 @@ async def notify_users(notification_type, content, embed=None):
                 except Exception as e:
                     print(f"Failed to send notification to user {user_id}: {str(e)}")
 
-# ==========================================================
-# WEB SERVER FOR KEEP-ALIVE
-# ==========================================================
-
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "I'm alive!"
-
-def run():
-    app.run(host='0.0.0.0', port=5000)
-
-def keep_alive():
-    Thread(target=run).start()
+# The keep_alive module is imported at the top of the file
 
 # ==========================================================
 # API AND DATA UTILITIES
@@ -523,7 +508,7 @@ class PayCommands(app_commands.Group):
         self, 
         interaction: discord.Interaction, 
         total_sale: float,
-        shareholder_count: int = 3,
+        shareholder_count: int = 0,  # Changed default to 0 to not apply shareholders by default
         shareholder_percentage: float = 4.0,
         war_id: str = None
     ):
@@ -2475,7 +2460,7 @@ async def calculate_war_pay(interaction: discord.Interaction, total_sale: float,
         copy_text += f"Total Attacks: {total_attacks}\n"
         copy_text += f"Pay Per Hit: ${pay_per_hit:,.2f}\n\n"
         copy_text += "PLAYER PAYOUTS:\n"
-        # Headers with proper spacing to ensure alignment
+        # Headers with proper spacing to match your screenshot
         copy_text += "player name      attacks     payout\n"
         # No total row at the top since it's in the footer already
         copy_text += "--------------------------------\n"
@@ -2494,41 +2479,34 @@ async def calculate_war_pay(interaction: discord.Interaction, total_sale: float,
                 
             payout_details.append((name, attacks, payout))
             
-            # Format exactly like the Discord screenshots:
-            # Player name on first line, ID on second, then attack count 
-            # Top players also show payout with commas
+            # Format exactly like your example: 
+            # Single line per player with name, attacks, and payout
             formatted_payout = f"{int(payout):,}"
             
-            # Get player ID if available
-            player_id = contributor.get("player_id", contributor.get("id", ""))
-            
-            # First add player name
-            copy_text += f"{name}\n"
-            
-            # Then add player ID if available
-            if player_id:
-                copy_text += f"{player_id}\n"
-                
-            # Get the index of this player in the sorted list
-            player_index = sorted_contributors.index(contributor) if contributor in sorted_contributors else -1
-            
-            # ALL players should show both attacks and payout
-            # Format with proper spacing to match header columns
-            copy_text += f"{attacks:12} {formatted_payout}\n"
+            # Display player name, attacks, and payout all on one line with fixed-width columns
+            # Use ljust to create consistent alignment like in your screenshot
+            name_padded = name.ljust(16)  # Left-justify name with padding
+            attack_str = str(attacks).rjust(3)  # Right-justify attacks with padding
+            copy_text += f"{name_padded} {attack_str}          {formatted_payout}\n"
             
         # Add footer with dashed line and totals
         copy_text += "--------------------------------\n"
         copy_text += f"Total Attacks: {total_attacks}\n"
         copy_text += f"Total Payout: {total_after_cut:,.0f}\n"
         
-        # Format summary embed field with financial details
-        summary_text = f"```\nTotal Sale: ${total_sale:,.2f}\n"
+        # Format summary embed field with financial details - format to match your example
+        summary_text = f"```\n"
         
+        # Show Total Sale for everyone
+        summary_text += f"Total Sale: ${total_sale:,.2f}\n"
+        
+        # Only show shareholder info if shareholders are specified
         if shareholder_count > 0:
             summary_text += f"Shareholder Cut ({shareholder_count}x @ {shareholder_percentage}%): ${shareholder_cut:,.2f}\n"
             summary_text += f"Amount Per Shareholder: ${shareholder_cut / shareholder_count:,.2f}\n"
+            summary_text += f"Total After Cut: ${total_after_cut:,.2f}\n"
         
-        summary_text += f"Total After Cut: ${total_after_cut:,.2f}\n"
+        # Always show total attacks and pay per hit
         summary_text += f"Total Attacks: {total_attacks}\n"
         summary_text += f"Pay Per Hit: ${pay_per_hit:,.2f}\n```"
         
@@ -2540,14 +2518,13 @@ async def calculate_war_pay(interaction: discord.Interaction, total_sale: float,
         )
         
         # Split player list into multiple fields to avoid Discord's 1024 character limit
-        # Calculate how many players we can fit per field (estimate ~70 chars per player with ID)
-        players_per_field = 12  # Conservative estimate
+        # We need to be more conservative after error - some players might have long names
         
-        # Create player chunks
+        # Create player chunks with hard limit on player count per chunk
         player_chunks = []
         current_chunk = []
         current_chars = 0
-        char_limit = 990  # Leave a bit of room for safety
+        char_limit = 700  # Much more conservative limit based on error
         
         for i, (name, attacks, payout) in enumerate(payout_details):
             # Get player ID if available
@@ -2574,30 +2551,52 @@ async def calculate_war_pay(interaction: discord.Interaction, total_sale: float,
         if current_chunk:
             player_chunks.append(current_chunk)
         
-        # Create a field for each chunk
+        # Create header as a separate field
+        header_field = "```\nPLAYER PAYOUTS:\n"
+        header_field += "player name      attacks     payout\n"
+        header_field += "--------------------------------\n```"
+        
+        embed.add_field(
+            name="Payout Header",
+            value=header_field,
+            inline=False
+        )
+        
+        # Create a field for each chunk - without headers to save space
         for i, chunk in enumerate(player_chunks):
-            # Start with headers in first chunk
+            # Start code block for each chunk
             chunk_text = "```\n"
             
-            if i == 0:
-                chunk_text += "PLAYER PAYOUTS:\n"
-                chunk_text += "player name      attacks     payout\n"
-                chunk_text += "--------------------------------\n"
-            
-            # Add players in this chunk
+            # Add players in this chunk - no headers to save space
             for name, attacks, payout, player_id in chunk:
-                chunk_text += f"{name}\n"
-                if player_id:
-                    chunk_text += f"{player_id}\n"
-                chunk_text += f"{attacks:12} {int(payout):,}\n"
-            
-            # Add footer only to last chunk
-            if i == len(player_chunks) - 1:
-                chunk_text += "--------------------------------\n"
-                chunk_text += f"Total Attacks: {total_attacks}\n"
-                chunk_text += f"Total Payout: {total_after_cut:,.0f}\n"
+                # For very long names, truncate to prevent exceeding limits
+                if len(name) > 25:
+                    name = name[:22] + "..."
                 
+                # Single line per player with name, attacks, and payout with fixed-width columns
+                # Use ljust and rjust to create consistent alignment like in your screenshot
+                name_padded = name.ljust(16)  # Left-justify name with padding
+                attack_str = str(attacks).rjust(3)  # Right-justify attacks with padding
+                chunk_text += f"{name_padded} {attack_str}          {int(payout):,}\n"
+            
+            # Close the code block
             chunk_text += "```"
+            
+            # Make sure the text doesn't exceed 1000 chars
+            if len(chunk_text) > 1000:
+                # If still too long, just include as many safe entries as we can
+                safe_text = "```\n"
+                for name, attacks, payout, player_id in chunk:
+                    # Same format exactly as your example - single line with name, attacks, and payout
+                    name_padded = name[:20].ljust(16) # Left-justify name with padding
+                    attack_str = str(attacks).rjust(3) # Right-justify attacks with padding
+                    entry = f"{name_padded} {attack_str}          {int(payout):,}\n"
+                    if len(safe_text) + len(entry) + 4 < 1000:  # +4 for the closing ```
+                        safe_text += entry
+                    else:
+                        break
+                safe_text += "```"
+                chunk_text = safe_text
             
             # Add this chunk as a field
             embed.add_field(
@@ -2605,6 +2604,19 @@ async def calculate_war_pay(interaction: discord.Interaction, total_sale: float,
                 value=chunk_text,
                 inline=False
             )
+        
+        # Add footer as separate field
+        footer_field = "```\n"
+        footer_field += "--------------------------------\n"
+        footer_field += f"Total Attacks: {total_attacks}\n"
+        footer_field += f"Total Payout: {total_after_cut:,.0f}\n"
+        footer_field += "```"
+        
+        embed.add_field(
+            name="Payout Summary",
+            value=footer_field,
+            inline=False
+        )
         
         # Create view with copy button
         view = CopyButtonView(copy_text)
@@ -3323,12 +3335,90 @@ async def show_commands_legacy(ctx):
     response_msg = await ctx.send(embed=embed)
     asyncio.create_task(scheduled_message_delete(response_msg))
 
+# Handle bot mentions in messages (DMs and everywhere else)
+@bot.event
+async def on_message(message):
+    # Don't respond to our own messages
+    if message.author == bot.user:
+        return
+        
+    # Check if the bot was mentioned
+    if bot.user.mentioned_in(message):
+        # Get a cleaner message content by removing the mention
+        clean_content = message.content.replace(f'<@{bot.user.id}>', '').replace(f'<@!{bot.user.id}>', '').strip()
+        
+        # Always respond to mentions, regardless of additional text
+        war_embed = None
+        
+        # Try to get current war status for a helpful response
+        try:
+            # Pull current war data as context
+            war_id = current_war_data.get("war_id")
+            if war_id:
+                war_embed = discord.Embed(
+                    title="💥 Faction War Status",
+                    description=f"I'm tracking war #{war_id}! Use `/war status` for full details.",
+                    color=0xff9900
+                )
+        except Exception:
+            pass
+            
+        # Basic response to mention with available commands
+        embed = discord.Embed(
+            title="👋 Hi there!",
+            description="I'm AttackAlert, a faction war tracking bot! Here are some things I can do:",
+            color=0x1abc9c
+        )
+        
+        # Add quick command options
+        embed.add_field(
+            name="Common Commands",
+            value="• Use `/war status` to see current war status\n"
+                  "• Use `/target info <ID>` to look up a specific target\n"
+                  "• Use `/war leaderboard` to see top attackers",
+            inline=False
+        )
+        
+        embed.add_field(
+            name="Need more help?",
+            value="Type `/` to see all available commands or use `/help` for a detailed command list.",
+            inline=False
+        )
+        
+        # If user asked something specific (has additional text)
+        if clean_content:
+            embed.add_field(
+                name="You said",
+                value=f"```{clean_content[:200]}```\nI'm primarily designed to handle commands rather than conversations. Try one of the commands above!",
+                inline=False
+            )
+        
+        await message.reply(embed=embed)
+        
+        # If we have war info, add that as a follow-up
+        if war_embed:
+            await message.channel.send(embed=war_embed)
+                
+    # Process commands
+    await bot.process_commands(message)
+
 # ==========================================================
 # RUN THE BOT
 # ==========================================================
 
 def run_bot():
-    keep_alive()
+    # Start the keep-alive web server with the bot's info
+    # This will allow external services to ping it and keep the bot running
+    try:
+        # Keep-alive needs to start before the bot to work reliably
+        war_id = current_war_data.get("war_id") if current_war_data else None
+        keep_alive(str(bot.user) if bot.user else "Starting...", war_id)
+        print("Keep-alive server started!")
+    except Exception as e:
+        print(f"Warning: Keep-alive server failed to start: {e}")
+        print("The bot will run but may go offline when you close the browser.")
+
+    # Run the Discord bot (this is a blocking call)
     bot.run(DISCORD_TOKEN)
 
 if __name__ == "__main__":

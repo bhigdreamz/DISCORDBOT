@@ -38,7 +38,7 @@
           "id": 50579,
           "name": "Trash Bandits",
           "score": 4001,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -101,7 +101,7 @@
           "id": 41777,
           "name": "The Swarm",
           "score": 4348,
-          "chain": 1
+          "chain": 0
         }
       ]
     },
@@ -137,7 +137,7 @@
           "id": 31764,
           "name": "39th Street Warriors",
           "score": 14289,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 37537,
@@ -158,7 +158,7 @@
           "id": 15595,
           "name": "Lusty Lizards",
           "score": 3033,
-          "chain": 0
+          "chain": 278
         },
         {
           "id": 37537,
@@ -179,7 +179,7 @@
           "id": 12863,
           "name": "WTF Healers",
           "score": 4974,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -206,7 +206,7 @@
           "id": 40624,
           "name": "Toxic Reign",
           "score": 20240,
-          "chain": 7101
+          "chain": 0
         }
       ]
     },
@@ -227,7 +227,7 @@
           "id": 46588,
           "name": "Grim Reapers",
           "score": 3818,
-          "chain": 1147
+          "chain": 0
         }
       ]
     },
@@ -242,7 +242,7 @@
           "id": 8795,
           "name": "The Brotherhood of Battle",
           "score": 3281,
-          "chain": 1
+          "chain": 11
         },
         {
           "id": 37537,
@@ -263,7 +263,7 @@
           "id": 37530,
           "name": "Crossfire",
           "score": 790,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -332,7 +332,7 @@
           "id": 48002,
           "name": "Corrupted Phoenix",
           "score": 7799,
-          "chain": 2
+          "chain": 1
         }
       ]
     },
@@ -353,7 +353,7 @@
           "id": 37786,
           "name": "Momentum",
           "score": 14321,
-          "chain": 0
+          "chain": 97
         }
       ]
     },
@@ -410,7 +410,7 @@
           "id": 9356,
           "name": "SMTH - Party Animals",
           "score": 6157,
-          "chain": 1202
+          "chain": 0
         },
         {
           "id": 37537,
@@ -494,7 +494,7 @@
           "id": 8076,
           "name": "Order Through Chaos",
           "score": 4026,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -557,7 +557,7 @@
           "id": 11796,
           "name": "SMTH - Bright Summit",
           "score": 11123,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -599,7 +599,7 @@
           "id": 946,
           "name": "PT-IronHearts",
           "score": 21208,
-          "chain": 2
+          "chain": 1
         },
         {
           "id": 37537,
@@ -620,7 +620,7 @@
           "id": 230,
           "name": "PT-Family",
           "score": 21223,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 37537,
@@ -683,7 +683,7 @@
           "id": 11747,
           "name": "Natural Selection II",
           "score": 0,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -725,7 +725,7 @@
           "id": 1149,
           "name": "WTF",
           "score": 2507,
-          "chain": 0
+          "chain": 2
         },
         {
           "id": 37537,
@@ -767,7 +767,7 @@
           "id": 8076,
           "name": "Order Through Chaos",
           "score": 2010,
-          "chain": 1
+          "chain": 0
         },
         {
           "id": 37537,
@@ -830,7 +830,7 @@
           "id": 21040,
           "name": "Monarch Vanguard",
           "score": 0,
-          "chain": 0
+          "chain": 1
         },
         {
           "id": 37537,
@@ -1004,7 +1004,7 @@
           "id": 48848,
           "name": "Torn 4 Life",
           "score": 4841,
-          "chain": 559
+          "chain": 912
         }
       ]
     },
@@ -1418,7 +1418,7 @@
           "id": 18090,
           "name": "REK&amp;morty",
           "score": 1004,
-          "chain": 16
+          "chain": 0
         },
         {
           "id": 37537,
@@ -1529,7 +1529,7 @@
           "id": 43752,
           "name": "Tweakers in Sneakers",
           "score": 6731,
-          "chain": 13
+          "chain": 0
         }
       ]
     },
